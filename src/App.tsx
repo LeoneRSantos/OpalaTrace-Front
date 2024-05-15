@@ -1,39 +1,30 @@
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './index.css'
-import {
-  Menubar,
-  MenubarCheckboxItem,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarRadioGroup,
-  MenubarRadioItem,
-  MenubarSeparator,
-  MenubarShortcut,
-  MenubarSub,
-  MenubarSubContent,
-  MenubarSubTrigger,
-  MenubarTrigger,
-} from "@/components/ui/menubar"
-
-
+import NavBar from "./views/components/navbar/Navbar"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Home from "./views/pages/Home"
+import Opalas from "./views/pages/Opalas"
+import Configuracoes from "./views/pages/Configuracoes"
+import Rastreamento from "./views/pages/Rastreamento"
+import Agentes from "./views/pages/Agentes"
+import { SignIn } from "./views/login"
+import "../app/globals.css"
 
 function App() {
 
   return (
-    <>
-      {/* <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div> */}
+    <main className="bg-gray-950 text-white">
+      <NavBar />
 
-      {/* <h1>Aqui estará o sistema de rastreabilidade de Opalas</h1> */}
-    </>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/opalas" element={<Opalas />} />
+          <Route path="/configuracoes" element={<Configuracoes />} />
+          <Route path="/rastreamento" element={<Rastreamento />} />
+          <Route path="/agentes" element={<Agentes />} />
+          <Route path="/login" element={<SignIn />} />
+        </Routes>
+      </Router>
+    </main>
   )
 }
 
