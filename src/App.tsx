@@ -7,6 +7,7 @@ import Rastreamento from "./views/pages/Rastreamento"
 import Agentes from "./views/pages/Agentes"
 import { SignIn } from "./views/login"
 import "../app/globals.css"
+import Formulario from "./views/pages/Formulario"
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/rastreamento" element={<Rastreamento />} />
           <Route path="/agentes" element={<Agentes />} />
           <Route path="/login" element={<SignIn />} />
+          <Route path="/formulario" element={<Formulario />} />
         </Routes>
       </Router>
     </main>
