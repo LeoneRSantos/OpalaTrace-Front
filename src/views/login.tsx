@@ -21,7 +21,7 @@ export function SignIn() {
                                     <input type="checkbox" id="remember" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 focus:outline-none" checked></input>
                                     <label htmlFor="remember" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">Lembre-se de mim</label>
                                 </div>
-                                <a href="#"
+                                <a href="/formulario"
                                     className="text-xs text-indigo-500 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Criar conta</a>
                             </div>
                             <button type="submit" className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white">Login</button>
