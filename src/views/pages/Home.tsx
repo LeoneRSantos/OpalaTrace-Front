@@ -1,6 +1,10 @@
+import NavBar from "../components/navbar/Navbar";
+
 function Home() {
     return (
-
+        <>  
+         <NavBar />
+         
         <main className="h-screen flex w-full">
 
             <div className="min-h-screen flex items-start justify-center w-full bg-gray-950">
@@ -13,6 +17,7 @@ function Home() {
             </div>
 
         </main>
+         </>
     )
 }
 
