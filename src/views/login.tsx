@@ -1,36 +1,68 @@
 export function SignIn() {
+
     return (
         <>
-            <main className="h-screen flex w-full">
-                <div className="min-h-screen flex items-center justify-center w-full bg-gray-950">
-                    <div className="bg-white dark:bg-gray-900 shadow-md rounded-lg px-8 py-6 max-w-md">
-                        <h1 className="text-2xl font-bold text-center mb-4 text-gray-900 dark:text-gray-200">Sistema Opalas</h1>
-                        <form action="#">
-                            <div className="mb-4">
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email </label>
-                                <input type="email" id="email" className="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="eu@email.com" required></input>
+            <section className="bg-back-color h-svh flex justify-center items-center">
+                <div className="bg-form-color lg:w-6/12 px-4 pt-6 shadow-4xl rounded-3xl">
+                    <div className="flex flex-col min-w-0 break-words w-full mb-6  rounded-lg border-0">
+                        <div className="-t mb-0 px-6 py-6">
+                            <div className="text-center mb-3">
+                                <h2 className="text-blueGray-500 text-md font-bold">
+                                    Sistema Opalas
+                                </h2>
                             </div>
-                            <div className="mb-4">
-                                <label htmlFor="senha" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Senha</label>
-                                <input type="password" id="password" className="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:#FF4500" placeholder="Insira sua senha" required></input>
-                                <a href="#"
-                                    className="text-xs text-gray-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Esqueci minha senha</a>
+
+                        </div>
+                        <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
+                            <div className="text-blueGray-400 text-center mb-3 font-bold">
+
                             </div>
-                            <div className="flex items-center justify-between mb-4">
-                                <div className="flex items-center">
-                                    <input type="checkbox" id="remember" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 focus:outline-none" checked></input>
-                                    <label htmlFor="remember" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">Lembre-se de mim</label>
+                            <form>
+
+                                <div className="relative w-full mb-3">
+                                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">Email</label>
+                                    <input type="email" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-form-color" placeholder="Email"></input>
                                 </div>
-                                <a href="/formulario"
-                                    className="text-xs text-indigo-500 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Criar conta</a>
-                            </div>
-                            <button type="submit" className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white">Login</button>
-                        </form>
+
+                                <div className="relative w-full mb-3">
+                                    <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">Senha</label>
+                                    <input type="password" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-form-color" placeholder="Senha"></input>
+                                </div>
+
+                               {/* Ir pro formulário*/}
+                                <div>
+                                    <label className=" flex items-center">
+                                            <span className="ml-2 text-sm font-semibold text-blueGray-600">
+                                                AInda não está cadastrado?  
+                                                <a href="/formulario" className=" text-error-color margin-left: m-2">
+                                                    Criar conta
+                                                </a>
+                                            </span>
+                                    </label>
+                                </div>
+
+                                {/* Botão */}
+                                <div className="text-center mt-6">
+                                    <button className="bg-button-color text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150" type="button">
+                                        Entrar
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </main>
+            </section>
         </>
 
     )
 
+}
+
+export function logar() {
+    var login = document.getElementById("senha")
+
+
+
+    console.log(login)
 }
