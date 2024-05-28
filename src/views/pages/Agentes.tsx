@@ -11,6 +11,7 @@ import {
 import axios from "axios";
 import { TableRowsSplit } from "lucide-react";
 import { useEffect, useState } from "react";
+import NavBar from "../components/navbar/Navbar";
 
 function Agentes() {
     const [nomes, setnomes] = useState()
@@ -34,8 +35,13 @@ function Agentes() {
         {
             nome: "Márcio",
             funcao: "Transportador",
+            id: "Xd34567"
         },
-
+        {
+            nome: "André",
+            funcao: "Varejista",
+            id: "W56mjo"
+        },
 
 
 
@@ -43,49 +49,53 @@ function Agentes() {
 
     return (
 
+        <>
+            <NavBar />
+            <main className="h-screen flex w-full items-start justify-center">
 
-        <main className="h-screen flex w-full items-start justify-center">
-
-            <div className="max-h-screen items-start justify-center w-full bg-gray-950 max-w-md">
-                <div>
-                    {/* <div className="margin-left: 16px;">
+                <div className="max-h-screen items-start justify-center w-full bg-gray-950 max-w-md">
+                    <div>
+                        {/* <div className="margin-left: 16px;">
                         <h2>Agentes</h2>
                         <p>Esta será a tela na qual será possível adicionar e atualizar agentes</p>
                     </div> */}
-                    <div>
+                        <div>
 
-                        <div className="w-full">
-                            <Table>
-                                <TableCaption>Lista de agentes cadastrados</TableCaption>
-                                <TableHeader>
-                                    <TableRow>
-                                        <TableHead className="w-[100px]">Nome</TableHead>
-                                        <TableHead>Função</TableHead>
-                                        
-                                    </TableRow>
-                                </TableHeader>
-                                <TableBody>
-                                    {agentes.map((agentes) => (
-                                        <TableRow key={agentes.nome}>
-                                            <TableCell className="font-medium">{agentes.nome}</TableCell>
-                                            <TableCell>{agentes.funcao}</TableCell>
-                                         
+                            <div className="w-full">
+                                <Table>
+                                    <TableCaption>Lista de agentes cadastrados</TableCaption>
+                                    <TableHeader>
+                                        <TableRow>
+                                            <TableHead className="w-[100px]">Nome</TableHead>
+                                            <TableHead>Função</TableHead>
+                                            <TableHead>ID</TableHead>
+
                                         </TableRow>
-                                    ))}
-                                </TableBody>
-                                <TableFooter>
-                                    <TableRow>
-                                        <TableCell colSpan={1}>Total</TableCell>
-                                        <TableCell className="text-right">1</TableCell>
-                                    </TableRow>
-                                </TableFooter>
-                            </Table>
+                                    </TableHeader>
+                                    <TableBody>
+                                        {agentes.map((agentes) => (
+                                            <TableRow key={agentes.nome}>
+                                                <TableCell className="font-medium">{agentes.nome}</TableCell>
+                                                <TableCell>{agentes.funcao}</TableCell>
+                                                <TableCell>{agentes.id} </TableCell>
+
+                                            </TableRow>
+                                        ))}
+                                    </TableBody>
+                                    <TableFooter>
+                                        <TableRow>
+                                            <TableCell colSpan={2}>Total</TableCell>
+                                            <TableCell className="text-right">{agentes.length} </TableCell>
+                                        </TableRow>
+                                    </TableFooter>
+                                </Table>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </main>
+            </main>
+        </>
     )
 }
 
