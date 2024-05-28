@@ -1,4 +1,3 @@
-import NavBar from "./views/components/navbar/Navbar"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from "./views/pages/Home"
 import Opalas from "./views/pages/Opalas"
@@ -13,8 +12,6 @@ function App() {
 
   return (
     <main className="bg-gray-950 text-white">
-      <NavBar />
-
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
