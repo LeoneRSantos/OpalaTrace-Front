@@ -1,44 +1,81 @@
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
+
 
 function Formulario() {
     return (
-        <main className="h-screen flex w-full">
 
-            <div className="min-h-screen flex items-center justify-center w-full bg-gray-950">
-
-                <div className="bg-white dark:bg-gray-900 shadow-md rounded-lg px-8 py-6 max-w-md">
-
-                    <h1 className="text-2xl font-bold text-center mb-4 text-gray-900 dark:text-gray-200">Criar conta</h1>
-
-                    <form action="">
-
-                        <div className="mb-4">
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email </label>
-                            <input type="email" id="email" className="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="ex: opalas@email.com" required></input>
-
+        <section className="bg-back-color h-svh flex justify-center items-center">
+            <div className="bg-form-color lg:w-6/12 px-4 pt-6 shadow-4xl rounded-3xl">
+                <div className="flex flex-col min-w-0 break-words w-full mb-6  rounded-lg border-0">
+                    <div className="-t mb-0 px-6 py-6">
+                        <div className="text-center mb-3">
+                            <h2 className="text-blueGray-500 text-md font-bold">
+                                Sistema Opalas
+                            </h2>
                         </div>
 
-                        <div className="mb-4">
-                                <label htmlFor="senha" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Senha</label>
-                                <input type="password" id="password" className="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:#FF4500" placeholder="Insira sua senha" required></input>
-                                
+                    </div>
+                    <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
+                        <div className="text-blueGray-400 text-center mb-3 font-bold">
+
                         </div>
+                        <form>
+                            <div className="relative w-full mb-3">
+                                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password"> Nome</label>
+                                <input type="email" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow text-gray-800 focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Nome"></input>
+                            </div>
 
-                        <div className="mb-4">
-                                <label htmlFor="senha" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Confirmar senha</label>
-                                <input type="password" id="password" className="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:#FF4500" placeholder="Insira novamente sua senha" required></input>
-                                
-                        </div>
+                            <div className="relative w-full mb-3">
+                                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">Email</label>
+                                <input type="email" className="border-0 text-gray-800 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Email"></input>
+                            </div>
 
-                        <button type="submit" className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white">Criar conta</button>
+                            <div className="relative w-full mb-3">
+                                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">Senha</label>
+                                <input type="password" className="border-0 text-gray-800 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Senha"></input>
+                            </div>
+                            <div className="relative w-full mb-3">
+                                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">Confirme sua senha</label>
+                                <input type="password" className="border-0 text-gray-800 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Senha"></input>
+                            </div>
 
-                    </form>
+                            {/* Menu das funções */}
+                            <div className="text-gray-800">
 
-                </div>
+                            <Select>
+                                <SelectTrigger className="w-[180px]">
+                                    <SelectValue placeholder="Theme" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="light">Light</SelectItem>
+                                    <SelectItem value="dark">Dark</SelectItem>
+                                    <SelectItem value="system">Função</SelectItem>
+                                </SelectContent>
+                            </Select>
+                            </div>
 
 
-            </div>
 
-        </main>
+
+                            {/* Botão */}
+                            <div className="text-center mt-6">
+                                <button className="bg-button-color text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150" type="button">
+                                Criar usuário
+                                    
+                                </button>
+                            
+                            </div>
+                        </form >
+                    </div >
+                </div >
+            </div >
+        </section >
     )
 }
 
