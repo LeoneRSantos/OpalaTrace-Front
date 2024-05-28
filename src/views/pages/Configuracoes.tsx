@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import NavBar from "../components/navbar/Navbar";
 
 
 
@@ -18,7 +19,8 @@ function Configuracoes() {
     }
 
     return (
-
+        <>
+         <NavBar />
         <main className="h-screen flex w-full">
 
             <div className="min-h-screen flex items-start justify-center w-full bg-gray-950">
@@ -31,6 +33,7 @@ function Configuracoes() {
             </div>
 
         </main>
+        </>
     )
 }
 
