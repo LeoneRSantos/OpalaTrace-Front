@@ -18,6 +18,10 @@ module.exports = {
     },
     extend: {
       colors: {
+        'back-color': "#e9f2f9", 
+        'form-color': '#708599',
+        'button-color': '#0a4b75',
+        'error-color': '#8a000e',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
