@@ -51,7 +51,7 @@ function Agentes() {
 
         <>
             <NavBar />
-            <main className="h-screen flex w-full items-start justify-center">
+            <main className="h-screen flex w-full items-start justify-center bg-back-color">
 
                 <div className="max-h-screen items-start justify-center w-full bg-gray-950 max-w-md">
                     <div>

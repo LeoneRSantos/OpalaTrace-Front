@@ -23,7 +23,7 @@ function Configuracoes() {
          <NavBar />
         <main className="h-screen flex w-full">
 
-            <div className="min-h-screen flex items-start justify-center w-full bg-gray-950">
+            <div className="min-h-screen flex items-start justify-center w-full bg-back-color">
                 <div>
                     <div className="margin-left: 16px;">
                         <h2>Configurações</h2>

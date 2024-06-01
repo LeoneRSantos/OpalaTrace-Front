@@ -25,9 +25,9 @@ function Rastreamento() {
         <>
             <NavBar />
 
-            <main className="h-screen flex w-full">
+            <main className="h-screen flex w-full bg-back-color">
 
-                <div className="min-h-screen flex items-start justify-center w-full bg-gray-950">
+                <div className="min-h-screen flex items-start justify-center w-full bg-back-color">
                     <div className="max-h-screen items-start justify-center w-full bg-gray-950 max-w-md">
                         <div>
                             {/* <div className="margin-left: 16px;">

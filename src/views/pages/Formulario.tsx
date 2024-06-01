@@ -50,12 +50,13 @@ function Formulario() {
 
                             <Select>
                                 <SelectTrigger className="w-[180px]">
-                                    <SelectValue placeholder="Theme" />
+                                    <SelectValue placeholder="Função" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="light">Light</SelectItem>
-                                    <SelectItem value="dark">Dark</SelectItem>
-                                    <SelectItem value="system">Função</SelectItem>
+                                    <SelectItem value="lapidador-artesanal">Lapidador artesanal</SelectItem>
+                                    <SelectItem value="lapidador-industrial">Lapidador industrial</SelectItem>
+                                    <SelectItem value="transportador">Transportador</SelectItem>
+                                    <SelectItem value="varejista">Varejista</SelectItem>
                                 </SelectContent>
                             </Select>
                             </div>
