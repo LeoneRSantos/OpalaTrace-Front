@@ -10,6 +10,8 @@ import { useState } from "react";
 
 
 function Formulario() {
+    const [selectedFunction, setSelectedFunction] = useState(null);
+
     const {
         register,
         handleSubmit,
