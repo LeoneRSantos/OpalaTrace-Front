@@ -16,6 +16,7 @@ function Formulario() {
         register,
         handleSubmit,
         formState: { errors },
+        setValue
       } = useForm();
       
     return (
