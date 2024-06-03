@@ -18,6 +18,11 @@ function Formulario() {
         formState: { errors },
         setValue
       } = useForm();
+
+      const handleFunctionChange = (value: any) => {
+        setSelectedFunction(value);
+        setValue("funcao", value)
+      }
       
     return (
 
