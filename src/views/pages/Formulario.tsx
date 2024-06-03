@@ -35,17 +35,18 @@ function Formulario() {
                         <form>
                             <div className="relative w-full mb-3">
                                 <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password"> Nome</label>
-                                <input {...register('nome')} type="email" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow text-gray-800 focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Nome"></input>
+                                <input {...register('nome',  { required: true })} type="email" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow text-gray-800 focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Nome"></input>
+                                {/* {errors.nome && <p>Campo obrigatório</p>} */}
                             </div>
 
                             <div className="relative w-full mb-3">
                                 <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">Email</label>
-                                <input {...register('email')} type="email" className="border-0 text-gray-800 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Email"></input>
+                                <input {...register('email', { required: true })} type="email" className="border-0 text-gray-800 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Email"></input>
                             </div>
 
                             <div className="relative w-full mb-3">
                                 <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">Senha</label>
-                                <input {...register('senha')} type="password" className="border-0 text-gray-800 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Senha"></input>
+                                <input {...register('senha', { required: true })} type="password" className="border-0 text-gray-800 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Senha"></input>
                             </div>
                             <div className="relative w-full mb-3">
                                 <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">Confirme sua senha</label>
