@@ -65,7 +65,7 @@ function Formulario() {
                             {/* Menu das funções */}
                             <div className="text-gray-800">
 
-                            <Select {...register('funcao')}>
+                            <Select onValueChange={handleFunctionChange}>
                                 <SelectTrigger className="w-[180px]">
                                     <SelectValue placeholder="Função" />
                                 </SelectTrigger>
