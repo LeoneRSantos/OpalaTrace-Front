@@ -39,7 +39,7 @@ function Agentes() {
         getNomes()
     }, [10000])
 
-
+    
     return (
 
         <>
@@ -66,11 +66,11 @@ function Agentes() {
                                         </TableRow>
                                     </TableHeader>
                                     <TableBody>
-                                        {agentes.map((agentes) => (
-                                            <TableRow key={agentes.nome}>
-                                                <TableCell className="font-medium">{agentes.nome}</TableCell>
-                                                <TableCell>{agentes.funcao}</TableCell>
-                                                <TableCell>{agentes.id} </TableCell>
+                                        {nomes.map((nome) => (
+                                            <TableRow key={nome.id}>
+                                                <TableCell className="font-medium">{nome.nome}</TableCell>
+                                                <TableCell>{nome.nome}</TableCell>
+                                                <TableCell>{nome.email} </TableCell>
 
                                             </TableRow>
                                         ))}
@@ -78,7 +78,7 @@ function Agentes() {
                                     <TableFooter>
                                         <TableRow>
                                             <TableCell colSpan={2}>Total</TableCell>
-                                            <TableCell className="text-right">{agentes.length} </TableCell>
+                                            <TableCell className="text-right">{nomes.length} </TableCell>
                                         </TableRow>
                                     </TableFooter>
                                 </Table>
