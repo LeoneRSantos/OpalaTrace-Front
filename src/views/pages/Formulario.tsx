@@ -27,6 +27,32 @@ function Formulario() {
         setValue("funcao", value)
     }
     
+    interface Usuario {
+        nome: string,
+        email: string,
+        senha: string,
+        funcao: string
+    }
+    
+    interface Funcao {
+        nome: string,
+        id_funcao: string
+    }
+    const [funcoes, setFuncoes] = useState<Funcao[]>([])
+    
+    const getFuncoes = async () => {
+        try {
+            const res = await axios.get('http://localhost:3000/listar-funcoes');
+            setFuncoes(res.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    
+    useEffect(() => {
+        getFuncoes()
+    }, [10000])
+    
     return (
 
         <section className="bg-back-color h-svh flex justify-center items-center">
