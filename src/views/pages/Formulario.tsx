@@ -99,12 +99,14 @@ function Formulario() {
                                         <SelectValue placeholder="Função" />
                                     </SelectTrigger>
 
-                                <SelectContent>
-                                    <SelectItem value="lapidador-artesanal">Lapidador artesanal</SelectItem>
-                                    <SelectItem value="lapidador-industrial">Lapidador industrial</SelectItem>
-                                    <SelectItem value="transportador">Transportador</SelectItem>
-                                    <SelectItem value="varejista">Varejista</SelectItem>
-                                </SelectContent>
+                                    <SelectContent>
+
+                                        <SelectItem value="820529c9-4510-4b3e-9c3b-736a682fb6eb">Lapidador artesanal</SelectItem>
+                                        <SelectItem value="0d1626ef-8dab-4f4c-9128-3dd3a57c515d">Lapidador industrial</SelectItem>
+                                        <SelectItem value="ae9f5185-e07f-4fa5-916f-2d669356b79e">Transportador</SelectItem>
+                                        <SelectItem value="deb21e2e-f742-4d94-80a4-b9623885244a">Varejista</SelectItem>
+
+                                    </SelectContent>
                             </Select>
                             </div>
 
