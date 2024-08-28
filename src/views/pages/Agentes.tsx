@@ -9,13 +9,22 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import axios from "axios";
-import { TableRowsSplit } from "lucide-react";
+// import { TableRowsSplit } from "lucide-react";
 import { useEffect, useState } from "react";
 import NavBar from "../components/navbar/Navbar";
 
 function Agentes() {
-    const [nomes, setnomes] = useState()
-    const [onEdit, setOnEdit] = useState(null)
+    interface Usuario {
+        id: string,
+        nome: string,
+        email: string,
+        senha: string,
+        id_funcao: string
+    }
+    const [nomes, setnomes] = useState<Usuario[]>([])
+    // const [onEdit, setOnEdit] = useState(null)
+
+
 
     const getNomes = async () => {
         try {
