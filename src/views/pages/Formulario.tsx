@@ -94,10 +94,10 @@ function Formulario() {
                             {/* Menu das funções */}
                             <div className="text-gray-800">
 
-                            <Select onValueChange={handleFunctionChange}>
-                                <SelectTrigger className="w-[180px]">
-                                    <SelectValue placeholder="Função" />
-                                </SelectTrigger>
+                                <Select onValueChange={handleFunctionChange}>
+                                    <SelectTrigger className="w-[180px]">
+                                        <SelectValue placeholder="Função" />
+                                    </SelectTrigger>
                                 <SelectContent>
                                     <SelectItem value="lapidador-artesanal">Lapidador artesanal</SelectItem>
                                     <SelectItem value="lapidador-industrial">Lapidador industrial</SelectItem>
