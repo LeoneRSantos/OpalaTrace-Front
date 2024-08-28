@@ -54,7 +54,7 @@ function Formulario() {
     }, [10000])
     
     return (
-
+        
         <section className="bg-back-color h-svh flex justify-center items-center">
             <div className="bg-form-color lg:w-6/12 px-4 pt-6 shadow-4xl rounded-3xl">
                 <div className="flex flex-col min-w-0 break-words w-full mb-6  rounded-lg border-0">
