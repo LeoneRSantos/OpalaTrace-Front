@@ -37,24 +37,8 @@ function Agentes() {
 
     useEffect(() => {
         getNomes()
+    }, [10000])
 
-    }, [setnomes])
-
-    const agentes = [
-        {
-            nome: "Márcio",
-            funcao: "Transportador",
-            id: "Xd34567"
-        },
-        {
-            nome: "André",
-            funcao: "Varejista",
-            id: "W56mjo"
-        },
-
-
-
-    ]
 
     return (
 
