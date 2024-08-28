@@ -25,8 +25,8 @@ function Formulario() {
     const handleFunctionChange = (value: any) => {
         setSelectedFunction(value);
         setValue("funcao", value)
-      }
-      
+    }
+    
     return (
 
         <section className="bg-back-color h-svh flex justify-center items-center">
