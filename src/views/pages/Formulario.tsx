@@ -98,6 +98,7 @@ function Formulario() {
                                     <SelectTrigger className="w-[180px]">
                                         <SelectValue placeholder="Função" />
                                     </SelectTrigger>
+
                                 <SelectContent>
                                     <SelectItem value="lapidador-artesanal">Lapidador artesanal</SelectItem>
                                     <SelectItem value="lapidador-industrial">Lapidador industrial</SelectItem>
