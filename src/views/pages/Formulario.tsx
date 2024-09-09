@@ -54,6 +54,17 @@ function Formulario() {
         getFuncoes()
     }, [10000])
     
+    let historico = useNavigate()
+
+    function enviarDados(dados: any) {
+        axios.post("http://localhost:3000/cadastrar-usuario", dados).then(()=>{ 
+            console.log("Dados enviados: \n", dados);
+            historico("/login");
+        }).catch(()=> { 
+            console.log("Verificar a API.")
+        })
+    }
+
     return (
         
         <section className="bg-back-color h-svh flex justify-center items-center">
