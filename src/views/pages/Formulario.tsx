@@ -34,13 +34,13 @@ function Formulario() {
         senha: string,
         funcao: string
     }
-    
+
     interface Funcao {
         nome: string,
         id_funcao: string
     }
     const [funcoes, setFuncoes] = useState<Funcao[]>([])
-    
+
     const getFuncoes = async () => {
         try {
             const res = await axios.get('http://localhost:3000/listar-funcoes');
@@ -49,7 +49,7 @@ function Formulario() {
             console.log(error)
         }
     }
-    
+
     useEffect(() => {
         getFuncoes()
     }, [10000])
