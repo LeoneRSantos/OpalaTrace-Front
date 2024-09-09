@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/select"
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
-import { Interface } from "readline";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
 
@@ -27,7 +26,7 @@ function Formulario() {
         setSelectedFunction(value);
         setValue("id_funcao", value)
     }
-    
+
     interface Usuario {
         nome: string,
         email: string,
@@ -53,7 +52,7 @@ function Formulario() {
     useEffect(() => {
         getFuncoes()
     }, [10000])
-    
+
     let historico = useNavigate()
 
     function enviarDados(dados: any) {
@@ -85,8 +84,11 @@ function Formulario() {
                         <form>
                             <div className="relative w-full mb-3">
                                 <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password"> Nome</label>
-                                <input {...register('nome', { required: {
-                                    value: true, message: "Este campo está vazio"} })} type="email" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow text-gray-800 focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Nome"></input>
+                                <input {...register('nome', {
+                                    required: {
+                                        value: true, message: "Este campo está vazio"
+                                    }
+                                })} type="email" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow text-gray-800 focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Nome"></input>
                             </div>
 
                             <div className="relative w-full mb-3">
@@ -128,9 +130,6 @@ function Formulario() {
 
                             {/* Botão */}
                             <div className="text-center mt-6">
-                                <button onClick={handleSubmit((data) => console.log(data))} className="bg-button-color text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150" type="button">
-                                    Criar usuário
-
                                 <button onClick={handleSubmit((data) => { console.log(data);
                                     enviarDados(data);
                                  })} className="bg-button-color text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150" type="button">
