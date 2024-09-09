@@ -25,7 +25,7 @@ function Formulario() {
 
     const handleFunctionChange = (value: any) => {
         setSelectedFunction(value);
-        setValue("funcao", value)
+        setValue("id_funcao", value)
     }
     
     interface Usuario {
