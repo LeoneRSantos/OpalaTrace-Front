@@ -66,7 +66,7 @@ function Formulario() {
     }
 
     return (
-
+        
         <section className="bg-back-color h-svh flex justify-center items-center">
             <div className="bg-form-color lg:w-6/12 px-4 pt-6 shadow-4xl rounded-3xl">
                 <div className="flex flex-col min-w-0 break-words w-full mb-6  rounded-lg border-0">
@@ -85,8 +85,11 @@ function Formulario() {
                         <form>
                             <div className="relative w-full mb-3">
                                 <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password"> Nome</label>
-                                <input {...register('nome', { required: {
-                                    value: true, message: "Este campo está vazio"} })} type="email" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow text-gray-800 focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Nome"></input>
+                                <input {...register('nome', {
+                                    required: {
+                                        value: true, message: "Este campo está vazio"
+                                    }
+                                })} type="email" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow text-gray-800 focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Nome"></input>
                             </div>
 
                             <div className="relative w-full mb-3">
