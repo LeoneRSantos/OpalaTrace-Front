@@ -15,14 +15,14 @@ import { useNavigate } from "react-router-dom"
 function Formulario() {
 
     const [selectedFunction, setSelectedFunction] = useState(null);
-    
+
     const {
         register,
         handleSubmit,
         formState: { errors },
         setValue
     } = useForm();
-    
+
     const handleFunctionChange = (value: any) => {
         setSelectedFunction(value);
         setValue("funcao", value)
