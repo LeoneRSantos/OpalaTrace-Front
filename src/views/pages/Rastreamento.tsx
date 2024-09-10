@@ -37,18 +37,16 @@ function Rastreamento() {
                             <div className="w-full">
                                 <Table>
                                     <TableCaption>Lista de agentes cadastrados</TableCaption>
-                                        <TableHeader>
-                                            <TableRow>
-                                                <TableHead className="w-[100px]">Nome</TableHead>
-                                                <TableHead>Função</TableHead>
-                                                <TableHead>Data</TableHead>
-                                                <TableHead>Hora</TableHead>
-                                                <TableHead>Peso</TableHead>
-                                                <TableHead>Tipo</TableHead>
-
-                                            </TableRow>
-                                        </TableHeader>
-                                        <TableBody>
+                                    <TableHeader>
+                                        <TableRow>
+                                            <TableHead className="w-[100px] bg-back-color">Nome</TableHead>
+                                            <TableHead className="bg-back-color">Função</TableHead>
+                                            <TableHead className="bg-back-color">Data</TableHead>
+                                            <TableHead className="bg-back-color">Peso</TableHead>
+                                            <TableHead className="bg-back-color">Tipo</TableHead>
+                                        </TableRow>
+                                    </TableHeader>
+                                    <TableBody>
                                             {rastreio.map((rastreio) => (
                                                 <TableRow key={rastreio.custodiante}>
                                                     <TableCell className="font-medium">{rastreio.custodiante}</TableCell>
