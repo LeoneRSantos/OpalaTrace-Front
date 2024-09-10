@@ -47,14 +47,13 @@ function Rastreamento() {
                                         </TableRow>
                                     </TableHeader>
                                     <TableBody>
-                                            {rastreio.map((rastreio) => (
-                                                <TableRow key={rastreio.custodiante}>
-                                                    <TableCell className="font-medium">{rastreio.custodiante}</TableCell>
-                                                    <TableCell>{rastreio.funcao}</TableCell>
-                                                    <TableCell>{rastreio.data} </TableCell>
-                                                    <TableCell>{rastreio.hora} </TableCell>
-                                                    <TableCell>{rastreio.peso} </TableCell>
-                                                    <TableCell>{rastreio.tipo} </TableCell>
+                                        {rastreio.map((nome) => (
+                                            <TableRow key={nome.custodiante} className="bg-gray-500 font-bold">
+                                                <TableCell className="font-bold">{nome.custodiante}</TableCell>
+                                                <TableCell className="font-bold">{nome.funcao}</TableCell>
+                                                <TableCell >{nome.data}</TableCell>
+                                                <TableCell >{nome.peso} </TableCell>
+                                                <TableCell >{nome.tipo} </TableCell>
 
                                                 </TableRow>
                                             ))}
