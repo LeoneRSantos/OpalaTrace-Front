@@ -33,10 +33,10 @@ function Rastreamento() {
                         <h2>Agentes</h2>
                         <p>Esta será a tela na qual será possível adicionar e atualizar agentes</p>
                     </div> */}
-                            <div>
-
-                                <div className="w-full">
-                                    <Table>
+                        <div>
+                            <div className="w-full">
+                                <Table>
+                                    <TableCaption>Lista de agentes cadastrados</TableCaption>
                                         <TableHeader>
                                             <TableRow>
                                                 <TableHead className="w-[100px]">Nome</TableHead>
