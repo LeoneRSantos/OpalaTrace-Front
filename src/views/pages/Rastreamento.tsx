@@ -27,10 +27,9 @@ function Rastreamento() {
 
             <main className="h-screen flex w-full bg-back-color">
 
-                <div className="min-h-screen flex items-start justify-center w-full bg-back-color">
-                    <div className="max-h-screen items-start justify-center w-full bg-gray-950 max-w-md">
-                        <div>
-                            {/* <div className="margin-left: 16px;">
+            <div className="max-h-screen items-start justify-center w-full bg-gray-500">
+                    <div>
+                        {/* <div className="margin-left: 16px;">
                         <h2>Agentes</h2>
                         <p>Esta será a tela na qual será possível adicionar e atualizar agentes</p>
                     </div> */}
