@@ -95,10 +95,11 @@ function Agentes() {
                                     </TableHeader>
                                     <TableBody>
                                         {nomes.map((nome) => (
-                                            <TableRow key={nome.id}>
-                                                <TableCell className="font-medium">{nome.nome}</TableCell>
-                                                <TableCell>{nome.nome}</TableCell>
-                                                <TableCell>{nome.email} </TableCell>
+                                            <TableRow key={nome.id} className="bg-gray-500 font-bold">
+                                                <TableCell className="font-bold">{nome.nome}</TableCell>
+                                                <TableCell >{definirFuncao(nome.id_funcao)}</TableCell>
+                                                <TableCell >{nome.email} </TableCell>
+                                                <TableCell >{nome.id} </TableCell>
 
                                             </TableRow>
                                         ))}
