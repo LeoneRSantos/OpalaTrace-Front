@@ -106,8 +106,8 @@ function Agentes() {
                                     </TableBody>
                                     <TableFooter>
                                         <TableRow>
-                                            <TableCell colSpan={2}>Total</TableCell>
-                                            <TableCell className="text-right">{nomes.length} </TableCell>
+                                            {/* <TableCell colSpan={8}>Total</TableCell> */}
+                                            {/* <TableCell className="text-right">{nomes.length} </TableCell> */}
                                         </TableRow>
                                     </TableFooter>
                                 </Table>
