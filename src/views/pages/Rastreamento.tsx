@@ -55,17 +55,16 @@ function Rastreamento() {
                                                 <TableCell >{nome.peso} </TableCell>
                                                 <TableCell >{nome.tipo} </TableCell>
 
-                                                </TableRow>
-                                            ))}
-                                        </TableBody>
-                                        <TableFooter>
-                                            <TableRow>
-                                                <TableCell colSpan={5}>Total</TableCell>
-                                                <TableCell className="text-right">{rastreio.length} </TableCell>
                                             </TableRow>
-                                        </TableFooter>
-                                    </Table>
-                                </div>
+                                        ))}
+                                    </TableBody>
+                                    <TableFooter>
+                                        <TableRow>
+                                            {/* <TableCell colSpan={8}></TableCell> */}
+                                            {/* <TableCell className="text-right">{nomes.length} </TableCell> */}
+                                        </TableRow>
+                                    </TableFooter>
+                                </Table>
                             </div>
                         </div>
                     </div>
