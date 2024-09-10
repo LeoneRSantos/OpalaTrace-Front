@@ -87,10 +87,10 @@ function Agentes() {
                                     <TableCaption>Lista de agentes cadastrados</TableCaption>
                                     <TableHeader>
                                         <TableRow>
-                                            <TableHead className="w-[100px]">Nome</TableHead>
-                                            <TableHead>Função</TableHead>
-                                            <TableHead>ID</TableHead>
-
+                                            <TableHead className="w-[100px] bg-back-color">Nome</TableHead>
+                                            <TableHead className="bg-back-color">Função</TableHead>
+                                            <TableHead className="bg-back-color">Email</TableHead>
+                                            <TableHead className="bg-back-color">ID</TableHead>
                                         </TableRow>
                                     </TableHeader>
                                     <TableBody>
