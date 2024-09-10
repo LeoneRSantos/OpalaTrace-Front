@@ -119,6 +119,7 @@ function Formulario() {
                                         <SelectItem value="0d1626ef-8dab-4f4c-9128-3dd3a57c515d">Lapidador industrial</SelectItem>
                                         <SelectItem value="ae9f5185-e07f-4fa5-916f-2d669356b79e">Transportador</SelectItem>
                                         <SelectItem value="deb21e2e-f742-4d94-80a4-b9623885244a">Varejista</SelectItem>
+                                        <SelectItem value="30cb37d4-1b38-44b8-896b-40644120144c">Cliente</SelectItem>
 
                                     </SelectContent>
 
