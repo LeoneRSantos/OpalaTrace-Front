@@ -74,7 +74,7 @@ function Agentes() {
             <NavBar />
             <main className="h-screen flex w-full items-start justify-center bg-back-color">
 
-                <div className="max-h-screen items-start justify-center w-full bg-gray-950 max-w-md">
+                <div className="max-h-screen items-start justify-center w-full bg-gray-500">
                     <div>
                         {/* <div className="margin-left: 16px;">
                         <h2>Agentes</h2>
