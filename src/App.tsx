@@ -7,6 +7,7 @@ import Agentes from "./views/pages/Agentes"
 import { SignIn } from "./views/login"
 import "../app/globals.css"
 import Formulario from "./views/pages/Formulario"
+import AlterarDados from "./views/pages/Alterar-dados"
 
 function App() {
 
