@@ -117,6 +117,19 @@ function Configuracoes() {
                             </div>
                         </dl>
                     </div>
+
+
+
+                    {/* Botão */}
+                    <div className="text-center mt-6">
+                        <button onClick={()=>{ 
+                            historico('/formulario');
+                        }} className="bg-button-color text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none  mb-4 w-full mr-5 ease-linear transition-all duration-150" type="button">
+                            Alterar dados
+
+                        </button>
+
+                    </div>
                 </div>
             </section>
 
