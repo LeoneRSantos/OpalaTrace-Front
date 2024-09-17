@@ -22,6 +22,7 @@ function App() {
           <Route path="/agentes" element={<Agentes />} />
           <Route path="/login" element={<SignIn />} />
           <Route path="/formulario" element={<Formulario />} />
+          <Route path="/alterar-dados" element={<AlterarDados />} />
         </Routes>
       </Router>
     </main>
