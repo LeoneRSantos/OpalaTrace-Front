@@ -72,7 +72,7 @@ function Configuracoes() {
             <section className="bg-back-color h-svh flex justify-center items-center">
 
 
-                <div className="bg-white overflow-hidden shadow rounded-lg border">
+                <div className="bg-white overflow-hidden shadow rounded-lg border lg:w-6/12 px-4 pt-6">
                     <div className="px-4 py-5 sm:px-6">
                         <h3 className="text-lg leading-6 font-medium text-gray-900">
                             Perfil do usuário
