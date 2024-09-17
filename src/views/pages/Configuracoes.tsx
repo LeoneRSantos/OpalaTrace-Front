@@ -6,7 +6,14 @@ import { useNavigate } from "react-router-dom"
 
 function Configuracoes() {
 
-    const [nomes, setnomes] = useState()
+    interface Usuario {
+        id: string,
+        nome: string,
+        email: string,
+        senha: string,
+        id_funcao: string
+    }
+
     const [onEdit, setOnEdit] = useState(null)
 
     const getNomes = async () => {
