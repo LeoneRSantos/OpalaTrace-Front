@@ -112,7 +112,7 @@ function Configuracoes() {
                                     Função
                                 </dt>
                                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    Lapidador industrial
+                                    {definirFuncao(nomes.at(0)?.id_funcao)}
                                 </dd>
                             </div>
                         </dl>
