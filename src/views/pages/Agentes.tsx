@@ -74,7 +74,7 @@ function Agentes() {
             <NavBar />
             <main className="h-screen flex w-full items-start justify-center bg-back-color">
 
-                <div className="max-h-screen items-start justify-center w-full mx-2 mt-4">
+                <div className="max-h-screen items-start justify-center w-full mx-2 mt-4 rounded-lg border">
                     <div>
                         {/* <div className="margin-left: 16px;">
                         <h2>Agentes</h2>
@@ -94,8 +94,8 @@ function Agentes() {
                                     </TableHeader>
                                     <TableBody>
                                         {nomes.map((nome) => (
-                                            <TableRow key={nome.id} className="bg-gray-500 font-bold">
-                                                <TableCell className="font-bold">{nome.nome}</TableCell>
+                                            <TableRow key={nome.id} className="bg-white shadow overflow-hidden shadow rounded-lg font-medium text-gray-900">
+                                                <TableCell className="font-medium ">{nome.nome}</TableCell>
                                                 <TableCell >{definirFuncao(nome.id_funcao)}</TableCell>
                                                 <TableCell >{nome.email} </TableCell>
                                                 <TableCell >{nome.id} </TableCell>
