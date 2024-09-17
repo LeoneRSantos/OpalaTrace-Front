@@ -66,6 +66,7 @@ function Configuracoes() {
 
     return (
         <>
+
             <NavBar />
 
             <section className="bg-back-color h-svh flex justify-center items-center">
