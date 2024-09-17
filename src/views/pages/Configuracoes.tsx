@@ -61,6 +61,9 @@ function Configuracoes() {
         }
     }
 
+    getNomes();
+    let historico = useNavigate()
+
     return (
         <>
             <NavBar />
