@@ -49,7 +49,13 @@ function Configuracoes() {
     const getNomes = async () => {
         try {
             const res = await axios.get('http://localhost:3000/usuarios');
+            // console.log(res.data);
+            console.log(res.data[0])
             setnomes(res.data)
+
+            // return res.data[0].nome;
+
+
         } catch (error) {
             console.log(error)
         }
