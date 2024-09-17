@@ -88,7 +88,7 @@ function Configuracoes() {
                                     Nome
                                 </dt>
                                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    Fulano
+                                    {nomes.at(0)?.nome}
                                 </dd>
                             </div>
                             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -123,7 +123,7 @@ function Configuracoes() {
                     {/* Botão */}
                     <div className="text-center mt-6">
                         <button onClick={()=>{ 
-                            historico('/formulario');
+                            historico('/alterar-dados');
                         }} className="bg-button-color text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none  mb-4 w-full mr-5 ease-linear transition-all duration-150" type="button">
                             Alterar dados
 
