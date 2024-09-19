@@ -82,8 +82,8 @@ function Agentes() {
                     </div> */}
                         <div>
                             <div className="w-full">
-                                <Table>
-                                    <TableCaption>Lista de agentes cadastrados</TableCaption>
+                                <Table className="bg-back-color">
+                                    <TableCaption className="bg-back-color">Lista de agentes cadastrados</TableCaption>
                                     <TableHeader>
                                         <TableRow>
                                             <TableHead className="w-[100px] bg-back-color">Nome</TableHead>
