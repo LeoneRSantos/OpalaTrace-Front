@@ -4,7 +4,7 @@ function Opalas() {
     return (
         <>
             <NavBar />
-            <main className="h-screen flex w-full bg-back-color">
+            <main className="h-screen  w-full justify-center  bg-back-color">
 
                 <div className="min-h-screen flex items-start justify-center w-full">
                     <div>
