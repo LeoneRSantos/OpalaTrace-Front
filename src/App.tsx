@@ -12,7 +12,7 @@ import AlterarDados from "./views/pages/Alterar-dados"
 function App() {
 
   return (
-    <main className="bg-gray-950 text-white">
+    <main className="bg-back-color text-white">
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
