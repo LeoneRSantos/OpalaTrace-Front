@@ -3,6 +3,31 @@ import NavBar from "../components/navbar/Navbar";
 import { useState } from "react";
 
 function Opalas() {
+    interface Opalas{ 
+        custodiante: string;
+        funcao: string;
+        name: string;
+        id: string;
+    }
+
+    const [opalas, setOpalas] = useState<Opalas[]>([])
+
+    const getOpalas = async () => {
+        try {
+            const opala = await axios.get("http://127.0.0.1:5000/api/v1/namespaces/default/tokens/pools");
+
+            setOpalas(opala.data);
+    
+            console.log(opala.data[0]);
+            
+        } catch (error) {
+            console.log(error);
+
+        }
+    }
+
+    getOpalas();
+
     return (
         <>
             <NavBar />
