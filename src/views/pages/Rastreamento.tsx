@@ -25,50 +25,44 @@ function Rastreamento() {
         <>
             <NavBar />
 
-            <main className="h-screen flex w-full bg-back-color">
+            <main className="h-screen flex w-full items-start my-8 bg-back-color mx-8 mt-4">
 
-            <div className="max-h-screen items-start justify-center w-full bg-gray-500 mx-2 mt-4">
-                    <div>
-                        {/* <div className="margin-left: 16px;">
-                        <h2>Agentes</h2>
-                        <p>Esta será a tela na qual será possível adicionar e atualizar agentes</p>
-                    </div> */}
-                        <div>
-                            <div className="w-full">
-                                <Table>
-                                    <TableCaption>Lista de agentes cadastrados</TableCaption>
-                                    <TableHeader>
-                                        <TableRow>
-                                            <TableHead className="w-[100px] bg-back-color">Nome</TableHead>
-                                            <TableHead className="bg-back-color">Função</TableHead>
-                                            <TableHead className="bg-back-color">Data</TableHead>
-                                            <TableHead className="bg-back-color">Peso</TableHead>
-                                            <TableHead className="bg-back-color">Tipo</TableHead>
-                                        </TableRow>
-                                    </TableHeader>
-                                    <TableBody>
-                                        {rastreio.map((nome) => (
-                                            <TableRow key={nome.custodiante} className="bg-gray-500 font-bold">
-                                                <TableCell className="font-bold">{nome.custodiante}</TableCell>
-                                                <TableCell className="font-bold">{nome.funcao}</TableCell>
-                                                <TableCell >{nome.data}</TableCell>
-                                                <TableCell >{nome.peso} </TableCell>
-                                                <TableCell >{nome.tipo} </TableCell>
 
-                                            </TableRow>
-                                        ))}
-                                    </TableBody>
-                                    <TableFooter>
-                                        <TableRow>
-                                            {/* <TableCell colSpan={8}></TableCell> */}
-                                            {/* <TableCell className="text-right">{nomes.length} </TableCell> */}
-                                        </TableRow>
-                                    </TableFooter>
-                                </Table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <ol className="relative border-s border-gray-800 dark:border-gray-900">
+                    <li className="mb-10 ms-4">
+                        <div className="absolute w-3 h-3 bg-gray-800 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                        <time className="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-500">2024-08-27 T17:07:32</time>
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Cadastro da opala Opala 1</h3>
+                        <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-500">Cadastro da Opala 1 por Lapidador 1.</p>
+                        <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-500 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Detalhes <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg></a>
+                    </li>
+                    <li className="mb-10 ms-4">
+                        <div className="absolute w-3 h-3 bg-gray-800 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                        <time className="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-500">2024-08-26 T21:54:10</time>
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Transferência de Opala 1 de lapidador para transportador</h3>
+                        <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-500">Transferência da opala Opala 1 de Lapidador 1 para Transportador 1.</p>
+
+                        <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-500 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Detalhes <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg></a>
+                        
+                    </li>
+                    <li className="ms-4">
+                        <div className="absolute w-3 h-3 bg-gray-800 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                        <time className="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-500">2024-08-26 T21:54:10</time>
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Transferência de Opala 1 de transportador para varejista</h3>
+                        <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-500">Transferência de Opala 1 de Transportador 1 para Varejista 1.</p>
+
+                        <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-500 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700">Detalhes <svg className="w-3 h-3 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg></a> 
+
+                    </li>
+                </ol>
+
+
             </main>
         </>
     )
