@@ -81,7 +81,9 @@ function Rastreamento() {
                         </svg></a> 
 
                     </li>
-                </ol>
+            </ol>
+
+            ))}
 
 
             </main>
