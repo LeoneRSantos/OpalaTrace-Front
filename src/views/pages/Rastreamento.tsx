@@ -1,14 +1,6 @@
-import {
-    Table,
-    TableBody,
-    TableCaption,
-    TableCell,
-    TableFooter,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table"
+import axios from "axios";
 import NavBar from "../components/navbar/Navbar";
+import { useState } from "react";
 
 function Rastreamento() {
 
