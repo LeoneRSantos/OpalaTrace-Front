@@ -26,7 +26,9 @@ function Opalas() {
         }
     }
 
-    getOpalas();
+    useEffect(() => {
+        getOpalas()
+    }, [10000])
 
     return (
         <>
