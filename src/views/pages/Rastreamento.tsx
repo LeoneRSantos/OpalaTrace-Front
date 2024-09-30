@@ -32,9 +32,14 @@ function Rastreamento() {
         try {
             const opala = await axios.get("http://127.0.0.1:5000/api/v1/namespaces/default/tokens/transfers");
 
-            setOpalas(opala.data);
-
-            console.log(opala.data[0]);
+            // Verifica se 'opala.data' é um array e filtra apenas os itens com type "transfer"
+            if (Array.isArray(opala.data)) {
+                const filteredTransfers = opala.data.filter(item => item.type === "transfer");
+                setOpalas(opala.data);
+                console.log(filteredTransfers);
+            } else {
+                console.log("A resposta não é um array.");
+            }
 
         } catch (error) {
             console.log(error);
