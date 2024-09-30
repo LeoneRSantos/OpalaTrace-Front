@@ -47,7 +47,10 @@ function Rastreamento() {
         }
     }
 
-    getOpalas();
+
+    useEffect(() => {
+        getOpalas()
+    }, [10000])
 
     return (
         <>
