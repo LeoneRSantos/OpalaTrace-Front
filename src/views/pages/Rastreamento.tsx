@@ -1,6 +1,6 @@
 import axios from "axios";
 import NavBar from "../components/navbar/Navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Rastreamento() {
 
