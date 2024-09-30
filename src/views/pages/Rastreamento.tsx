@@ -43,9 +43,8 @@ function Rastreamento() {
 
         } catch (error) {
             console.log(error);
-
         }
-    }
+    };
 
 
     useEffect(() => {
@@ -56,7 +55,7 @@ function Rastreamento() {
         <>
             <NavBar />
 
-            {opalas.map((cadaLocal: any) => ( 
+            {opalas.map((cadaLocal: any) => (
                 <ol className="relative border-s border-gray-800 dark:border-gray-900 my-8 mx-8 mt-4">
                     <li className="mb-10 ms-4">
                         <div className="absolute w-3 h-3 bg-gray-800 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
@@ -68,7 +67,7 @@ function Rastreamento() {
                         </svg></a>
                     </li>
 
-            </ol>
+                </ol>
 
             ))}
 
