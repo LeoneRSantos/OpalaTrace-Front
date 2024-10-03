@@ -15,7 +15,8 @@ function Opalas() {
         did: string;
     }
 
-    const [opalas, setOpalas] = useState<Opalas[]>([])
+    const [opalas, setOpalas] = useState<Opalas[]>([]);
+    const [nomes, setNomes] = useState<Opalas[]>([]);
 
     const getOpalas = async () => {
         try {
