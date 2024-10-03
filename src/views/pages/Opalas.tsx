@@ -46,7 +46,12 @@ function Opalas() {
             for (let verifier of element.verifiers) {
                 // Se o valor do verifier for igual ao parâmetro, retorna o nome
                 if (verifier.value === carteiraEthereum) {
-                    console.log(element.verifiers);
+                    // console.log(element.verifiers);
+                    for (let info of infoBD){ 
+                        if (element.id == info.id) {
+                            return info.nome
+                        }
+                    }
                     return element.name;
                 }
             }
