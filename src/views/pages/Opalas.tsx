@@ -20,7 +20,7 @@ function Opalas() {
 
     const getOpalas = async () => {
         try {
-            const opala = await axios.get("http://127.0.0.1:5000/api/v1/namespaces/default/tokens/pools");
+            const opala = await axios.get("http://127.0.0.1:5000/api/v1/namespaces/default/tokens/transfers");
 
             setOpalas(opala.data);
 
