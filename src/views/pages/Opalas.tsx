@@ -18,6 +18,7 @@ function Opalas() {
 
     const [opalas, setOpalas] = useState<Opalas[]>([]);
     const [nomes, setNomes] = useState<Opalas[]>([]);
+    const [infoBD, setInfoBD] = useState<Opalas[]>([]);
 
     const getOpalas = async () => {
         try {
