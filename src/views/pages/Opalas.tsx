@@ -24,7 +24,7 @@ function Opalas() {
 
             const nomes = await axios.get("http://localhost:5000/api/v1/identities?fetchverifiers=true");
 
-            console.log(opala.data[0]);
+            setNomes(nomes.data);
 
         } catch (error) {
             console.log(error);
