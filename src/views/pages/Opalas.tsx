@@ -26,6 +26,10 @@ function Opalas() {
 
             const nomes = await axios.get("http://localhost:5000/api/v1/identities?fetchverifiers=true");
 
+            // Recuperar dados do Banco de Dados
+            const info = await axios.get('http://localhost:3000/usuarios');
+            setInfoBD(info.data);
+
             setNomes(nomes.data);
 
             if (Array.isArray(opala.data)) {
