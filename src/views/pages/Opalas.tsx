@@ -8,6 +8,11 @@ function Opalas() {
         funcao: string;
         name: string;
         id: string;
+        pool: string;
+        to: string;
+        verifiers: any;
+        value: string;
+        did: string;
     }
 
     const [opalas, setOpalas] = useState<Opalas[]>([])
