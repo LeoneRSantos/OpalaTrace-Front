@@ -13,6 +13,7 @@ function Opalas() {
         verifiers: any;
         value: string;
         did: string;
+        nome: string;
     }
 
     const [opalas, setOpalas] = useState<Opalas[]>([]);
