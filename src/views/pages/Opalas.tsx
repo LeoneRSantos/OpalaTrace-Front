@@ -26,6 +26,13 @@ function Opalas() {
 
             setNomes(nomes.data);
 
+            if (Array.isArray(opala.data)) {
+                const filteredTransfers = opala.data.filter(item => item.type === "transfer");
+                setOpalas(opala.data);
+                console.log(filteredTransfers);
+            } else {
+                console.log("A resposta não é um array.");
+            }
         } catch (error) {
             console.log(error);
 
