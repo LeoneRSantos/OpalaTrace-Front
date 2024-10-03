@@ -22,7 +22,7 @@ function Opalas() {
         try {
             const opala = await axios.get("http://127.0.0.1:5000/api/v1/namespaces/default/tokens/transfers");
 
-            setOpalas(opala.data);
+            const nomes = await axios.get("http://localhost:5000/api/v1/identities?fetchverifiers=true");
 
             console.log(opala.data[0]);
 
