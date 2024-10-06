@@ -14,6 +14,8 @@ function Opalas() {
         value: string;
         did: string;
         nome: string;
+        id_funcao: string;
+        profile: any;
     }
 
     const [opalas, setOpalas] = useState<Opalas[]>([]);
