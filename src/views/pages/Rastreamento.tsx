@@ -44,7 +44,7 @@ function Rastreamento() {
                     return element.to;
                 }
             }
-    }
+        }
 
 
 
