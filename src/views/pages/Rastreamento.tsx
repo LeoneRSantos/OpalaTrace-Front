@@ -127,6 +127,14 @@ function Rastreamento() {
         try {
             const opala = await axios.get("http://127.0.0.1:5000/api/v1/namespaces/default/tokens/transfers");
 
+            const nomes = await axios.get("http://localhost:5000/api/v1/identities?fetchverifiers=true");
+
+            // Recuperar dados do Banco de Dados
+            const info = await axios.get('http://localhost:3000/usuarios');
+            setInfoBD(info.data);
+
+            setNomes(nomes.data);
+
             // Verifica se 'opala.data' é um array e filtra apenas os itens com type "transfer"
             if (Array.isArray(opala.data)) {
                 const filteredTransfers = opala.data.filter(item => item.type === "transfer");
