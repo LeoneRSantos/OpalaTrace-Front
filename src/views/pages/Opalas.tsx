@@ -22,6 +22,8 @@ function Opalas() {
     const [nomes, setNomes] = useState<Opalas[]>([]);
     const [infoBD, setInfoBD] = useState<Opalas[]>([]);
 
+
+
     const getOpalas = async () => {
         try {
             const opala = await axios.get("http://127.0.0.1:5000/api/v1/namespaces/default/tokens/transfers");
