@@ -121,7 +121,7 @@ function Rastreamento() {
         // Retornar a string formatada
         return `${day}/${month}/${year}  |  ${hours}:${minutes}:${seconds}`;
       }
-
+    
 
     const getOpalas = async () => {
         try {
