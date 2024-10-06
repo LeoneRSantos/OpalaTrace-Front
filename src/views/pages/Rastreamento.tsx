@@ -22,6 +22,28 @@ function Rastreamento() {
         pool: string;
         to: string;
         created: string;
+        from: string;
+        verifiers: any;
+        nome: string;
+        id_funcao: string;
+    }
+
+    function definirNome(carteiraEthereum: string) {
+        // Itera pela lista de elementos em 'nomes'
+        for (let element of nomes) {
+            // Itera pela lista de 'verifiers' dentro de cada elemento
+            for (let verifier of element.verifiers) {
+                // Se o valor do verifier for igual ao parâmetro, retorna o nome
+                if (verifier.value === carteiraEthereum) {
+                    // console.log(element.verifiers);
+                    for (let info of infoBD) {
+                        if (element.id == info.id) {
+                            return info.nome
+                        }
+                    }
+                    return element.to;
+                }
+            }
     }
 
 
