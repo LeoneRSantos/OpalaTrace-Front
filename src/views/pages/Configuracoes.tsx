@@ -115,6 +115,22 @@ function Configuracoes() {
                                     {definirFuncao(nomes.at(0)?.id_funcao)}
                                 </dd>
                             </div>
+                            <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                <dt className="text-sm font-medium text-gray-500">
+                                    ID
+                                </dt>
+                                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                    {/* {definirFuncao(nomes.at(0)?.id_funcao)} */}
+                                </dd>
+                            </div>
+                            <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                <dt className="text-sm font-medium text-gray-500">
+                                    ID Ethereum 
+                                </dt>
+                                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                    {/* {definirFuncao(nomes.at(0)?.id_funcao)} */}
+                                </dd>
+                            </div>
                         </dl>
                     </div>
 
