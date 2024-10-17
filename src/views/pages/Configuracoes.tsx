@@ -11,7 +11,9 @@ function Configuracoes() {
         nome: string,
         email: string,
         senha: string,
-        id_funcao: string
+        id_funcao: string,
+        to: string,
+        verifiers: any
     }
 
     const [onEdit, setOnEdit] = useState(null)
