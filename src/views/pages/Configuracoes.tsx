@@ -67,7 +67,21 @@ function Configuracoes() {
         }
     }
 
-    getNomes();
+    function definirCarteira(idDoUsuario: string) {
+        for (let element of Ids) {
+            if (element.id == idDoUsuario) {
+                return element.verifiers[0].value;
+
+            }
+
+
+        }
+        return "nada";
+    }
+
+    useEffect(() => {
+        getNomes()
+    }, [10000])
     let historico = useNavigate()
 
     return (
