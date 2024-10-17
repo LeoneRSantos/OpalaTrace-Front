@@ -19,6 +19,7 @@ function Configuracoes() {
     const [onEdit, setOnEdit] = useState(null)
 
     const [nomes, setnomes] = useState<Usuario[]>([])
+    const [Ids, setIds] = useState<Usuario[]>([])
 
     function definirFuncao(idFuncao: any) {
         if (idFuncao == "f6499904-c2fd-49f1-a0a2-9bfd80a6cd65") {
