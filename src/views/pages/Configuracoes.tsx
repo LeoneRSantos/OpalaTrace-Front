@@ -61,7 +61,6 @@ function Configuracoes() {
 
             // return res.data[0].nome;
 
-
         } catch (error) {
             console.log(error)
         }
@@ -108,7 +107,7 @@ function Configuracoes() {
                                     Nome
                                 </dt>
                                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {nomes.at(0)?.nome}
+                                    {nomes.at(nomes.length - 1)?.nome}
                                 </dd>
                             </div>
                             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -116,7 +115,7 @@ function Configuracoes() {
                                     Email
                                 </dt>
                                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {nomes.at(0)?.email}
+                                    {nomes.at(nomes.length - 1)?.email}
                                 </dd>
                             </div>
                             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -132,7 +131,7 @@ function Configuracoes() {
                                     Função
                                 </dt>
                                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {definirFuncao(nomes.at(0)?.id_funcao)}
+                                    {definirFuncao(nomes.at(length - 1)?.id_funcao)}
                                 </dd>
                             </div>
                             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -140,15 +139,15 @@ function Configuracoes() {
                                     ID
                                 </dt>
                                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {/* {definirFuncao(nomes.at(0)?.id_funcao)} */}
+                                    {nomes.at(length - 1)?.id}
                                 </dd>
                             </div>
                             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt className="text-sm font-medium text-gray-500">
-                                    ID Ethereum 
+                                    ID Ethereum
                                 </dt>
                                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {/* {definirFuncao(nomes.at(0)?.id_funcao)} */}
+                                    {definirCarteira("727fcd6c-6846-4cce-9f18-d2308c6cfdc4")}
                                 </dd>
                             </div>
                         </dl>
@@ -158,7 +157,7 @@ function Configuracoes() {
 
                     {/* Botão */}
                     <div className="text-center mt-6">
-                        <button onClick={()=>{ 
+                        <button onClick={() => {
                             historico('/alterar-dados');
                         }} className="bg-button-color text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none  mb-4 w-full mr-5 ease-linear transition-all duration-150" type="button">
                             Alterar dados
