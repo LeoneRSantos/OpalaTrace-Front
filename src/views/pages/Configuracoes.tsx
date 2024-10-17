@@ -52,9 +52,12 @@ function Configuracoes() {
     const getNomes = async () => {
         try {
             const res = await axios.get('http://localhost:3000/usuarios');
+            const ids = await axios.get("http://localhost:5000/api/v1/identities?fetchverifiers=true");
             // console.log(res.data);
-            console.log(res.data[0])
-            setnomes(res.data)
+            setIds(ids.data);
+
+            // console.log(res.data[0])
+            setnomes(res.data);
 
             // return res.data[0].nome;
 
