@@ -128,6 +128,10 @@ function Opalas() {
         getOpalas()
     }, [10000])
 
+    function handleSubmit(arg0: (data: any) => void): import("react").MouseEventHandler<HTMLButtonElement> | undefined {
+        throw new Error("Function not implemented.");
+    }
+
     return (
         <>
             <NavBar />
