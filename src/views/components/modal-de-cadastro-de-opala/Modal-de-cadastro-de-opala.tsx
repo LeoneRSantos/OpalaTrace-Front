@@ -11,6 +11,12 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
+interface Dados{
+  id_usuario: string,
+  id_funcao: string,
+  destino: string
+}
+
 export function ModalDeCadastroDeOpala() {
   return (
     <Dialog>
