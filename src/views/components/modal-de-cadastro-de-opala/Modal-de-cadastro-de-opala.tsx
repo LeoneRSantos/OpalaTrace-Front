@@ -13,43 +13,46 @@ import { Label } from "@/components/ui/label"
 import axios from "axios"
 import { useEffect, useState } from "react"
 
-interface Dados{
-  id_usuario: string,
-  id_funcao: string,
-  destino: string,
-  id: string
-}
-
-const [usuarios, setUsuarios] = useState<Dados[]>([]); 
-
-const getUsuarios = async () =>{ 
-  try {
-    const usuario = await axios.get("http://localhost:3000/usuarios");
-    
-    setUsuarios(usuario.data);
-
-  } catch (error) {
-    console.log(error);
-  }
-
-
-}
-
-function definirFuncaoDoAgente(idDoAgente: string){ 
-  for (let element of usuarios){ 
-    if (element.id == idDoAgente) {
-      console.log(element.id_funcao);
-    } else {
-      console.log("Não está funcionando ainda.");
-    }
-  }
-}
-
-useEffect(() => {
-  getUsuarios();
-}, [10000])
 
 export function ModalDeCadastroDeOpala() {
+
+  interface Dados{
+    id_usuario: string,
+    id_funcao: string,
+    destino: string,
+    id: string
+  }
+  
+  const [usuarios, setUsuarios] = useState<Dados[]>([]); 
+  
+  const getUsuarios = async () =>{ 
+    try {
+      const usuario = await axios.get("http://localhost:3000/usuarios");
+      
+      setUsuarios(usuario.data);
+  
+    } catch (error) {
+      console.log(error);
+    }
+  
+  
+  }
+  
+  function definirFuncaoDoAgente(idDoAgente: string){ 
+    for (let element of usuarios){ 
+      if (element.id == idDoAgente) {
+        console.log("Função do agente: ", element.id_funcao);
+        return element.id_usuario;
+      }
+    }
+    console.log("Usuário não encontrado pelo ID ", idDoAgente);
+    return idDoAgente;
+  }
+  
+  useEffect(() => {
+    getUsuarios();
+  }, [10000])
+
   return (
     <Dialog>
       <DialogTrigger asChild>
