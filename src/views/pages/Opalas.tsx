@@ -135,7 +135,9 @@ function Opalas() {
     return (
         <>
             <NavBar />
+
             <main className="h-screen  w-full justify-center  bg-back-color">
+                {ModalDeCadastroDeOpala()}
 
                 {opalas.map((cadaOpala) => (
 
