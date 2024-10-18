@@ -16,7 +16,33 @@ import { useEffect, useState } from "react"
 interface Dados{
   id_usuario: string,
   id_funcao: string,
-  destino: string
+  destino: string,
+  id: string
+}
+
+const [usuarios, setUsuarios] = useState<Dados[]>([]); 
+
+const getUsuarios = async () =>{ 
+  try {
+    const usuario = await axios.get("http://localhost:3000/usuarios");
+    
+    setUsuarios(usuario.data);
+
+  } catch (error) {
+    console.log(error);
+  }
+
+
+}
+
+function definirFuncaoDoAgente(idDoAgente: string){ 
+  for (let element of usuarios){ 
+    if (element.id == idDoAgente) {
+      console.log(element.id_funcao);
+    } else {
+      console.log("Não está funcionando ainda.");
+    }
+  }
 }
 
 export function ModalDeCadastroDeOpala() {
