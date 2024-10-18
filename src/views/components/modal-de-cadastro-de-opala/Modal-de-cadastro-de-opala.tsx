@@ -54,7 +54,7 @@ export function ModalDeCadastroDeOpala() {
     <Dialog>
       <DialogTrigger asChild>
       <Button className=" mx-4 mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-button-color rounded-lg hover:bg-button-color focus:ring-4 focus:outline-none focus:ring-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-button-color" variant="outline">
-                    Adicionar
+                    Adicionar Opala
 
                     <svg className="rtl:rotate-180 w-4 h-4 ms-2" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
