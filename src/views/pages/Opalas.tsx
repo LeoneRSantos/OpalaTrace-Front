@@ -2,6 +2,7 @@ import axios from "axios";
 import NavBar from "../components/navbar/Navbar";
 import { useEffect, useState } from "react";
 import { ModalDeTransferencia } from "../components/modal-de-transferencia/Modal-de-transferencia";
+import { ModalDeCadastroDeOpala } from "../components/modal-de-cadastro-de-opala/Modal-de-cadastro-de-opala";
 
 function Opalas() {
     interface Opalas {
