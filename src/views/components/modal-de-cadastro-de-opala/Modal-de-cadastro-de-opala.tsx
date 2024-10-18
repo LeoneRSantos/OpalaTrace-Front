@@ -45,6 +45,10 @@ function definirFuncaoDoAgente(idDoAgente: string){
   }
 }
 
+useEffect(() => {
+  getUsuarios();
+}, [10000])
+
 export function ModalDeCadastroDeOpala() {
   return (
     <Dialog>
