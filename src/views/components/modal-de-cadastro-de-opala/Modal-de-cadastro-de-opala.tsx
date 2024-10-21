@@ -17,14 +17,14 @@ import { useForm } from "react-hook-form"
 
 export function ModalDeCadastroDeOpala() {
 
-  interface Dados{
+  interface Dados {
     id_usuario: string,
     id_funcao: string,
     destino: string,
     id: string
   }
-  
-  const [usuarios, setUsuarios] = useState<Dados[]>([]); 
+
+  const [usuarios, setUsuarios] = useState<Dados[]>([]);
 
   const {
     register,
@@ -32,12 +32,12 @@ export function ModalDeCadastroDeOpala() {
     formState: { errors },
     setValue
   } = useForm();
-  
-  const getUsuarios = async () =>{ 
+
+  const getUsuarios = async () => {
     try {
       const usuario = await axios.get("http://localhost:3000/usuarios");
       setUsuarios(usuario.data);
-  
+
     } catch (error) {
       console.log(error);
     }
@@ -46,9 +46,9 @@ export function ModalDeCadastroDeOpala() {
   function enviarDados(dados: any) {
     console.log("Dados enviados: \n", dados);
   }
-  
-  function definirFuncaoDoAgente(idDoAgente: string){ 
-    for (let element of usuarios){ 
+
+  function definirFuncaoDoAgente(idDoAgente: string) {
+    for (let element of usuarios) {
       if (element.id == idDoAgente) {
         console.log("Função do agente: ", element.id_funcao);
         return element.id_funcao;
@@ -57,7 +57,7 @@ export function ModalDeCadastroDeOpala() {
     console.log("Usuário não encontrado pelo ID ", idDoAgente);
     return idDoAgente;
   }
-  
+
   useEffect(() => {
     getUsuarios();
   }, [10000])
@@ -91,30 +91,61 @@ export function ModalDeCadastroDeOpala() {
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="name" className="text-right">
-                ID do agente
+                Nome da Opala
               </Label>
               <Input
-                defaultValue="0000000"
+                defaultValue="nome"
                 className="col-span-3"
-                {...register('id_do_agente', { required: true })}
+                {...register('nome', { required: true })}
               />
-              {errors.id_do_agente && <span className="text-red-500">ID do agente é obrigatório</span>}
+              {errors.nome && <span className="text-red-500">Nome da Opala é obrigatório</span>}
             </div>
+
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="username" className="text-right">
-                ID Ethereum
+                Local de extração
               </Label>
               <Input
-                defaultValue="0XX00000"
+                defaultValue="local onde foi extraída."
                 className="col-span-3"
-                {...register('carteira_ethereum', { required: true })}
+                {...register('local', { required: true })}
               />
-              {errors.carteira_ethereum && <span className="text-red-500">ID Ethereum é obrigatório</span>}
+              {errors.local && <span className="text-red-500">Local de extração é obrigatório</span>}
             </div>
           </div>
+
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="username" className="text-right">
+              Peso
+            </Label>
+            <Input
+              defaultValue="peso em gramas(g)"
+              className="col-span-3"
+              {...register('peso', { required: true })}
+            />
+            {errors.peso && <span className="text-red-500">Peso é obrigatório</span>}
+
+            <Label htmlFor="username" className="text-right">
+              Tipo
+            </Label>
+            <Input
+              defaultValue=""
+              className="col-span-3"
+              {...register('tipo', { required: true })}
+            />
+            <div className="mt-4 text-right">
+              {errors.tipo && <span className="text-red-700 text-right">Tipo é obrigatório</span>}
+
+            </div>
+
+          </div>
+        
+          <div className="mt-4">
           <DialogFooter>
             <Button className="bg-button-color" type="submit">Adicionar</Button>
           </DialogFooter>
+
+          </div>
         </form>
       </DialogContent>
     </Dialog>
