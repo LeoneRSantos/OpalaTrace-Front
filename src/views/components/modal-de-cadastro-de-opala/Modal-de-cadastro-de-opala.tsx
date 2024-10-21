@@ -42,8 +42,10 @@ export function ModalDeCadastroDeOpala() {
     } catch (error) {
       console.log(error);
     }
-  
-  
+  }
+
+  function enviarDados(dados: any) {
+    console.log("Dados enviados: \n", dados);
   }
   
   function definirFuncaoDoAgente(idDoAgente: string){ 
