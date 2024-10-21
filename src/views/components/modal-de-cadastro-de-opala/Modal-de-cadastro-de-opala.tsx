@@ -103,16 +103,18 @@ export function ModalDeCadastroDeOpala() {
                 {...register('id_do_agente', { required: true })}
               />
               {errors.id_do_agente && <span className="text-red-500">ID do agente é obrigatório</span>}
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              ID Ethereum
-            </Label>
-            <Input
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="username" className="text-right">
+                ID Ethereum
+              </Label>
+              <Input
               id="username"
-              defaultValue="0XX00000"
-              className="col-span-3"
-            />
+                defaultValue="0XX00000"
+                className="col-span-3"
+                {...register('carteira_ethereum', { required: true })}
+              />
+              {errors.carteira_ethereum && <span className="text-red-500">ID Ethereum é obrigatório</span>}
           </div>
         </div>
         <DialogFooter>
