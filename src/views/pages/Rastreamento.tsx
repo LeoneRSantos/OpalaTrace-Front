@@ -138,7 +138,7 @@ function Rastreamento() {
             // Verifica se 'opala.data' é um array e filtra apenas os itens com type "transfer"
             if (Array.isArray(opala.data)) {
                 const filteredTransfers = opala.data.filter(item => item.type === "transfer");
-                setOpalas(opala.data);
+                setOpalas(filteredTransfers);
                 console.log(filteredTransfers);
             } else {
                 console.log("A resposta não é um array.");
