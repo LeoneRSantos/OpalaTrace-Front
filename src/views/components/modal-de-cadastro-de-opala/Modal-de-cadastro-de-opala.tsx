@@ -91,15 +91,15 @@ export function ModalDeCadastroDeOpala() {
         </DialogHeader>
         {/* Adicionando o formulário */}
         <form onSubmit={handleSubmit(enviarDados)}>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              ID do agente
-            </Label>
-            <Input
+          <div className="grid gap-4 py-4">
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="name" className="text-right">
+                ID do agente
+              </Label>
+              <Input
               id="name"
-              defaultValue="0000000"
-              className="col-span-3"
+                defaultValue="0000000"
+                className="col-span-3"
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
