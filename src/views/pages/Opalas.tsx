@@ -63,7 +63,6 @@ function Opalas() {
                     // console.log(element.verifiers);
                     for (let info of infoBD) {
                         if (element.id == info.id) {
-                            console.log(info.id_funcao);
                             const funcaoAtual = info.id_funcao;
 
                             if (funcaoAtual == "f6499904-c2fd-49f1-a0a2-9bfd80a6cd65") {
