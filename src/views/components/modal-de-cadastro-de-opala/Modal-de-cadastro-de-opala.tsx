@@ -115,11 +115,12 @@ export function ModalDeCadastroDeOpala() {
                 {...register('carteira_ethereum', { required: true })}
               />
               {errors.carteira_ethereum && <span className="text-red-500">ID Ethereum é obrigatório</span>}
+            </div>
           </div>
-        </div>
-        <DialogFooter>
-          <Button className="bg-button-color" type="submit">Adicionar</Button>
-        </DialogFooter>
+          <DialogFooter>
+            <Button className="bg-button-color" type="submit">Adicionar</Button>
+          </DialogFooter>
+        </form>
       </DialogContent>
     </Dialog>
   )
