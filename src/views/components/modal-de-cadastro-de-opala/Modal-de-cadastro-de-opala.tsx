@@ -36,7 +36,6 @@ export function ModalDeCadastroDeOpala() {
   const getUsuarios = async () =>{ 
     try {
       const usuario = await axios.get("http://localhost:3000/usuarios");
-      
       setUsuarios(usuario.data);
   
     } catch (error) {
@@ -68,12 +67,10 @@ export function ModalDeCadastroDeOpala() {
       <DialogTrigger asChild>
         <Button className="mx-4 mt-4 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-button-color rounded-lg hover:bg-button-color focus:ring-4 focus:outline-none focus:ring-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-button-color" variant="outline">
           Adicionar Opala
-
           <svg className="rtl:rotate-180 w-4 h-4 ms-2" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-                        strokeWidth={3}
             stroke="currentColor"
             strokeLinecap="round"
             strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"
@@ -97,7 +94,6 @@ export function ModalDeCadastroDeOpala() {
                 ID do agente
               </Label>
               <Input
-              id="name"
                 defaultValue="0000000"
                 className="col-span-3"
                 {...register('id_do_agente', { required: true })}
@@ -109,7 +105,6 @@ export function ModalDeCadastroDeOpala() {
                 ID Ethereum
               </Label>
               <Input
-              id="username"
                 defaultValue="0XX00000"
                 className="col-span-3"
                 {...register('carteira_ethereum', { required: true })}
