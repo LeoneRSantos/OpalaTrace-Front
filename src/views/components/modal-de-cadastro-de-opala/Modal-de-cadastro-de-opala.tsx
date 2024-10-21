@@ -100,7 +100,9 @@ export function ModalDeCadastroDeOpala() {
               id="name"
                 defaultValue="0000000"
                 className="col-span-3"
-            />
+                {...register('id_do_agente', { required: true })}
+              />
+              {errors.id_do_agente && <span className="text-red-500">ID do agente é obrigatório</span>}
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="username" className="text-right">
