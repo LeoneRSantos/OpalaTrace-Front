@@ -25,6 +25,13 @@ export function ModalDeCadastroDeOpala() {
   }
   
   const [usuarios, setUsuarios] = useState<Dados[]>([]); 
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue
+  } = useForm();
   
   const getUsuarios = async () =>{ 
     try {
