@@ -52,7 +52,7 @@ export function ModalDeCadastroDeOpala() {
     for (let element of usuarios){ 
       if (element.id == idDoAgente) {
         console.log("Função do agente: ", element.id_funcao);
-        return element.id_usuario;
+        return element.id_funcao;
       }
     }
     console.log("Usuário não encontrado pelo ID ", idDoAgente);
