@@ -29,23 +29,24 @@ export function SignIn() {
                                     <input type="password" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 text-form-color" placeholder="Senha"></input>
                                 </div>
 
-                               {/* Ir pro formulário*/}
+                                {/* Ir pro formulário*/}
                                 <div>
                                     <label className=" flex items-center">
-                                            <span className="ml-2 text-sm font-semibold text-blueGray-600">
-                                                AInda não está cadastrado?  
-                                                <a href="/formulario" className=" text-error-color margin-left: m-2">
-                                                    Criar conta
-                                                </a>
-                                            </span>
+                                        <span className="ml-2 text-sm font-semibold text-blueGray-600">
+                                            Ainda não está cadastrado?
+                                            <a href="/formulario" className=" text-error-color margin-left: m-2">
+                                                Criar conta
+                                            </a>
+                                        </span>
                                     </label>
                                 </div>
 
                                 {/* Botão */}
                                 <div className="text-center mt-6">
-                                    <button className="bg-button-color text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150" type="button">
+                                    <button className="bg-background-color text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150 border-2 border-white" type="button">
                                         Entrar
                                     </button>
+
                                 </div>
 
                             </form>
