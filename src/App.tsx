@@ -15,7 +15,7 @@ function App() {
     <main className="bg-back-color text-white">
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Opalas />} />
           <Route path="/opalas" element={<Opalas />} />
           <Route path="/configuracoes" element={<Configuracoes />} />
           <Route path="/rastreamento" element={<Rastreamento />} />
