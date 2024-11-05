@@ -65,7 +65,9 @@ function Formulario() {
             console.log("Verificar a API.")
         })
     }
-
+    if(signed){ 
+       historico("/opalas");
+    }
     return (
 
         <section className="bg-back-color h-svh flex justify-center items-center">
