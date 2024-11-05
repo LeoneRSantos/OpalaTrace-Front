@@ -10,7 +10,25 @@ type FormValues = {
 };
 
 export function SignIn() {
+  const { register, handleSubmit } = useForm<FormValues>();
 
+
+
+  const { signin, signed } = useAuth();
+
+  const onSubmit: SubmitHandler<FormValues> = async (dados) => {
+    try {
+      signin(dados);
+      // await axios.post("http://localhost:3000/auth", dados);
+      console.log("Dados enviados:\n", dados);
+    } catch (error) {
+      console.error("Verificar a API.");
+    }
+  };
+
+  if (signed) {
+    return <Navigate to="/Opalas" />;
+  } else {
     return (
         <>
             <section className="bg-back-color h-svh flex justify-center items-center">
