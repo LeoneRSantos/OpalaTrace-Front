@@ -14,7 +14,29 @@ import { Label } from "@/components/ui/label";
 import { useForm, SubmitHandler } from "react-hook-form";
 import axios from "axios";
 
-export function ModalDeTransferencia(idOpala: string) {
+interface TransferFormInputs {
+  origem: string;
+  destino: string;
+  indice: string
+}
+
+interface ModalDeTransferenciaProps {
+  idOpala: string; 
+  idOrigem: string,
+  indice: string// Recebe o idOpala do componente pai
+}
+
+export function ModalDeTransferencia({ idOpala, idOrigem, indice }: ModalDeTransferenciaProps) {
+  const { register, handleSubmit } = useForm<TransferFormInputs>();
+
+  const onSubmit: SubmitHandler<TransferFormInputs> = (data) => {
+    axios.post("http://localhost:3000/transferir-opala", data).then(()=>{ 
+      console.log("Dados enviados: \n", data);
+  }).catch(()=> { 
+      console.log("Verificar a API.")
+  })
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
