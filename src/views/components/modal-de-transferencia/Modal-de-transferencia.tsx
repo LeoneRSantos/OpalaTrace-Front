@@ -77,11 +77,11 @@ export function ModalDeTransferencia({ idOpala, idOrigem, indice }: ModalDeTrans
               className="col-span-3"
             />
           </div>
-        </div>
-        <DialogFooter>
-          <Button className="bg-button-color" type="submit">Transferir</Button>
-        </DialogFooter>
+          </div>
+          <DialogFooter>
+            <Button className="bg-button-color" type="submit">Transferir</Button>
+          </DialogFooter>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
