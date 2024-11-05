@@ -1,3 +1,14 @@
+import { useForm, SubmitHandler } from "react-hook-form";
+import axios from "axios";
+import { AuthContext, useAuth } from "../context/Auth"; // Corrigido para importar AuthContext
+import { useContext } from "react";
+import { Navigate } from "react-router-dom";
+
+type FormValues = {
+  email: string;
+  senha: string;
+};
+
 export function SignIn() {
 
     return (
