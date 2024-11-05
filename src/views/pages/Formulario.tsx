@@ -9,11 +9,13 @@ import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
+import {useAuth} from "../../context/Auth"
 
 
 function Formulario() {
 
     const [selectedFunction, setSelectedFunction] = useState(null);
+    const {signed} = useAuth();
 
     const {
         register,
