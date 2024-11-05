@@ -49,6 +49,7 @@ export function ModalDeTransferencia({ idOpala, idOrigem, indice }: ModalDeTrans
       </DialogTrigger>
       <DialogContent className="sm:max-w-[600px]">
         <DialogHeader>
+          {/* Exibe o idOpala passado como prop */}
           <DialogTitle>{`Transferir Opala \n ${idOpala}`}</DialogTitle>
           <DialogDescription>
             Insira as informações solicitadas nos campos a seguir para transferir a Opala selecionada.
@@ -77,10 +78,22 @@ export function ModalDeTransferencia({ idOpala, idOrigem, indice }: ModalDeTrans
               className="col-span-3"
             />
           </div>
+
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="origem" className="text-right">
+              Indice
+            </Label>
+            <Input
+              id="indice"
+              {...register("indice")}
+              defaultValue={indice}
+              className="col-span-3"
+            />
           </div>
           <DialogFooter>
             <Button className="bg-button-color" type="submit">Transferir</Button>
           </DialogFooter>
+        </form>
       </DialogContent>
     </Dialog>
   );
