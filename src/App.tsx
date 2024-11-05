@@ -8,24 +8,27 @@ import { SignIn } from "./views/login"
 import "../app/globals.css"
 import Formulario from "./views/pages/Formulario"
 import AlterarDados from "./views/pages/Alterar-dados"
+import {AutenticacaoProvider} from "./context/Auth"
 
 function App() {
 
   return (
+    <Router>
+    <AutenticacaoProvider>
+
     <main className="bg-back-color text-white">
-      <Router>
         <Routes>
-          <Route path="/" element={<Opalas />} />
           <Route path="/opalas" element={<Opalas />} />
           <Route path="/configuracoes" element={<Configuracoes />} />
           <Route path="/rastreamento" element={<Rastreamento />} />
           <Route path="/agentes" element={<Agentes />} />
-          <Route path="/login" element={<SignIn />} />
+          <Route path="/" element={<SignIn />} />
           <Route path="/formulario" element={<Formulario />} />
           <Route path="/alterar-dados" element={<AlterarDados />} />
         </Routes>
-      </Router>
     </main>
+    </AutenticacaoProvider>
+    </Router>
   )
 }
 
