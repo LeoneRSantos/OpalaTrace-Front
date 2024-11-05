@@ -54,24 +54,26 @@ export function ModalDeTransferencia({ idOpala, idOrigem, indice }: ModalDeTrans
             Insira as informações solicitadas nos campos a seguir para transferir a Opala selecionada.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              ID do agente
+            <Label htmlFor="origem" className="text-right">
+              Origem
             </Label>
             <Input
-              id="name"
-              defaultValue="0000000"
+              id="origem"
+              {...register("origem")}
+              defaultValue={idOrigem}
               className="col-span-3"
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              ID Ethereum
+            <Label htmlFor="ethereumId" className="text-right">
+              Destino
             </Label>
             <Input
-              id="username"
-              defaultValue="0XX00000"
+              id="destino"
+              {...register("destino")}
+              defaultValue=""
               className="col-span-3"
             />
           </div>
