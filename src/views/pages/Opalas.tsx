@@ -27,6 +27,29 @@ function Opalas() {
     const [infoBD, setInfoBD] = useState<Opalas[]>([]);
 
 
+    // Teste com o ID Ethereum do Usuario 18
+    const testeDeFiltroEthereum = "0x595c1f08e81a78fe9a4c40faf9285ee60642d43a";
+
+    // Usuario 19
+    const testeCom19 = "0x3a03ddf449677fd086bc6dcce286b3c275ebe811";
+
+    function filtrarOpalasDoAgente(idDoAgente: string) {
+        for (let element of nomes) {
+            if (element.id == idDoAgente) {
+                return element.verifiers[0].value;
+            }
+
+        }
+    }
+
+    function definirElemento(idDoAgente: string) {
+        for (let element of nomes) {
+            if (element.id == idDoAgente) {
+                return element.profile.id_da_funcao;
+            }
+
+        }
+    }
 
     const getOpalas = async () => {
         try {
