@@ -64,7 +64,9 @@ function Opalas() {
             setNomes(nomes.data);
 
             if (Array.isArray(opala.data)) {
-                const filteredTransfers = opala.data.filter(item => item.type === "transfer");
+                const filteredTransfers = opala.data.filter(item =>
+                    item.type === "transfer" && item.to === testeCom19
+                );
                 setOpalas(filteredTransfers);
                 console.log(filteredTransfers);
             } else {
