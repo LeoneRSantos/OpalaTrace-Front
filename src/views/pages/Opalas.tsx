@@ -63,12 +63,12 @@ function Opalas() {
 
             setNomes(nomes.data);
 
+
             if (Array.isArray(opala.data)) {
                 const filteredTransfers = opala.data.filter(item =>
                     item.type === "transfer" && item.to === testeCom19
                 );
                 setOpalas(filteredTransfers);
-                console.log(filteredTransfers);
             } else {
                 console.log("A resposta não é um array.");
             }
@@ -158,6 +158,7 @@ function Opalas() {
         throw new Error("Function not implemented.");
     }
 
+
     return (
         <>
             <NavBar />
@@ -165,21 +166,21 @@ function Opalas() {
             <main className="h-screen  w-full justify-center  bg-back-color">
                 {ModalDeCadastroDeOpala()}
 
-                {opalas.map((cadaOpala) => (
+                {opalas.map((cadaOpala) => {
+                    return (
+                        <div key={cadaOpala.localId} className="max-w-lg mx-4 mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            <p>
+                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Opala {cadaOpala.localId}</h5>
+                            </p>
+                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Custodiante: {definirNome(cadaOpala.to)}</p>
+                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Função: {definirFuncao(cadaOpala.to)}</p>
+                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Índice: {cadaOpala.tokenIndex}</p>
 
-                    <div className="max-w-lg  mx-4 mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                        <p>
-                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Opala {cadaOpala.localId} </h5>
-                        </p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Custodiante: {definirNome(cadaOpala.to)}</p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Função: {definirFuncao(cadaOpala.to)}</p>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Índice: {cadaOpala.tokenIndex}</p>
+                            <ModalDeTransferencia key={cadaOpala.id} idOpala={cadaOpala.localId} idOrigem={testeCom19} indice={cadaOpala.tokenIndex} />
+                        </div>
+                    )
 
-                        {ModalDeTransferencia(cadaOpala.pool)}
-                    </div>
-
-                )
-                )}
+                })}
 
             </main>
         </>
