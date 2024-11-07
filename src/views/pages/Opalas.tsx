@@ -19,7 +19,8 @@ function Opalas() {
         id_funcao: string;
         profile: any;
         localId: string,
-        tokenIndex: string
+        tokenIndex: string,
+        idEthereum: string
     }
 
     const [opalas, setOpalas] = useState<Opalas[]>([]);
@@ -67,7 +68,7 @@ function Opalas() {
             if (Array.isArray(opala.data)) {
                 const filteredTransfers = opala.data.filter(item =>
                     item.type === "transfer" && item.to === testeCom19
-                    item.type === "transfer" && item.to === usuarioLocal.idEthereum
+                );
                 setOpalas(filteredTransfers);
             } else {
                 console.log("A resposta não é um array.");
@@ -169,7 +170,7 @@ function Opalas() {
                 {opalas.map((cadaOpala) => {
                     return (
                         <div key={cadaOpala.localId} className="max-w-lg mx-4 mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <p>
+                                <span className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Opala {cadaOpala.localId}</span>
                                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Opala {cadaOpala.localId}</h5>
                             </p>
                             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Custodiante: {definirNome(cadaOpala.to)}</p>
