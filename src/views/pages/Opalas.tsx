@@ -33,23 +33,18 @@ function Opalas() {
 
     // Usuario 19
     const testeCom19 = "0x3a03ddf449677fd086bc6dcce286b3c275ebe811";
+    const usuarioLocal = JSON.parse(localStorage.getItem("@Auth:usuario")!);
 
-    function filtrarOpalasDoAgente(idDoAgente: string) {
+    async function filtrarOpalasDoAgente() {
+        console.log("usuarioLocal.id:", usuarioLocal.id);
         for (let element of nomes) {
-            if (element.id == idDoAgente) {
+            if (element.id === usuarioLocal.id) {
+                console.log("Carteira ethereum de filtrarOpalas(), em Opalas.tsx: \n", element.verifiers[0].value);
                 return element.verifiers[0].value;
             }
-
         }
-    }
-
-    function definirElemento(idDoAgente: string) {
-        for (let element of nomes) {
-            if (element.id == idDoAgente) {
-                return element.profile.id_da_funcao;
-            }
-
-        }
+        console.log("Comparação em filtarOpalas()");
+        return "";
     }
 
     const getOpalas = async () => {
@@ -64,10 +59,10 @@ function Opalas() {
 
             setNomes(nomes.data);
 
-
             if (Array.isArray(opala.data)) {
+
                 const filteredTransfers = opala.data.filter(item =>
-                    item.type === "transfer" && item.to === testeCom19
+                    item.type === "transfer" && item.to === usuarioLocal.idEthereum
                 );
                 setOpalas(filteredTransfers);
             } else {
@@ -149,16 +144,10 @@ function Opalas() {
         return carteiraEthereum;
     }
 
-
-
     useEffect(() => {
-        getOpalas()
+        getOpalas();
+        filtrarOpalasDoAgente();
     }, [10000])
-
-    function handleSubmit(arg0: (data: any) => void): import("react").MouseEventHandler<HTMLButtonElement> | undefined {
-        throw new Error("Function not implemented.");
-    }
-
 
     return (
         <>
@@ -170,8 +159,8 @@ function Opalas() {
                 {opalas.map((cadaOpala) => {
                     return (
                         <div key={cadaOpala.localId} className="max-w-lg mx-4 mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            <p>
                                 <span className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Opala {cadaOpala.localId}</span>
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Opala {cadaOpala.localId}</h5>
                             </p>
                             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Custodiante: {definirNome(cadaOpala.to)}</p>
                             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Função: {definirFuncao(cadaOpala.to)}</p>
