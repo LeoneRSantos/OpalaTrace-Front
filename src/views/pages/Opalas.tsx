@@ -19,8 +19,7 @@ function Opalas() {
         id_funcao: string;
         profile: any;
         localId: string,
-        tokenIndex: string,
-        idEthereum: string
+        tokenIndex: string
     }
 
     const [opalas, setOpalas] = useState<Opalas[]>([]);
@@ -68,7 +67,7 @@ function Opalas() {
             if (Array.isArray(opala.data)) {
                 const filteredTransfers = opala.data.filter(item =>
                     item.type === "transfer" && item.to === testeCom19
-                );
+                    item.type === "transfer" && item.to === usuarioLocal.idEthereum
                 setOpalas(filteredTransfers);
             } else {
                 console.log("A resposta não é um array.");
