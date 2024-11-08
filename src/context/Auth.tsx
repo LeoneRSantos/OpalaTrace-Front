@@ -2,7 +2,7 @@ import { createContext, useEffect, useState, ReactNode, useContext } from "react
 import { useNavigate } from "react-router-dom"
 import axios from "axios";
 
-interface Usuario{ 
+interface Usuario {
   id?: string,
   email?: string,
   senha?: string
@@ -103,7 +103,7 @@ export const AutenticacaoProvider = ({ children }: AutenticacaoProviderProps) =>
     }
   };
 
-  const singout = ()=>{ 
+  const singout = () => {
     localStorage.clear();
     setUsuario(null);
 
