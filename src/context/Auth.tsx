@@ -63,11 +63,17 @@ export const AutenticacaoProvider = ({ children }: AutenticacaoProviderProps) =>
 
   useEffect(() => {
     const carregarDados = async () => {
-      const usuarioLocal = localStorage.getItem("@Auth:usuario");
-      const tokenLocal = localStorage.getItem("@Auth:token");
+      try {
+        const usuarioLocal = localStorage.getItem("@Auth:usuario");
+        const tokenLocal = localStorage.getItem("@Auth:token");
 
-      if (usuarioLocal && tokenLocal) {
-        setUsuario(JSON.parse(usuarioLocal)); 
+        if (usuarioLocal && tokenLocal) {
+          setUsuario(JSON.parse(usuarioLocal));
+
+          configurarToken(tokenLocal);
+        }
+      } finally {
+        setLoading(false);
       }
     };
     carregarDados();
