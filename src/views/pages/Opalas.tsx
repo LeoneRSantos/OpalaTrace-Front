@@ -28,6 +28,8 @@ function Opalas() {
     const [nomes, setNomes] = useState<Opalas[]>([]);
     const [infoBD, setInfoBD] = useState<Opalas[]>([]);
 
+    const auth = useAuth()
+
 
     // Teste com o ID Ethereum do Usuario 18
     const testeDeFiltroEthereum = "0x595c1f08e81a78fe9a4c40faf9285ee60642d43a";
