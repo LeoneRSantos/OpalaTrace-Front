@@ -13,6 +13,7 @@ import { Label } from "@/components/ui/label"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
+import { useAuth } from "../../../context/Auth"
 
 
 export function ModalDeCadastroDeOpala() {
@@ -25,6 +26,8 @@ export function ModalDeCadastroDeOpala() {
   }
 
   const [usuarios, setUsuarios] = useState<Dados[]>([]);
+
+  const auth = useAuth()
 
   const {
     register,
@@ -59,8 +62,10 @@ export function ModalDeCadastroDeOpala() {
   }
 
   useEffect(() => {
-    getUsuarios();
-  }, [10000])
+    if (!auth?.loading) {
+      getUsuarios();
+    }
+  }, [auth?.loading]);
 
   return (
     <Dialog>
@@ -139,11 +144,11 @@ export function ModalDeCadastroDeOpala() {
             </div>
 
           </div>
-        
+
           <div className="mt-4">
-          <DialogFooter>
-            <Button className="bg-button-color" type="submit">Adicionar</Button>
-          </DialogFooter>
+            <DialogFooter>
+              <Button className="bg-button-color" type="submit">Adicionar</Button>
+            </DialogFooter>
 
           </div>
         </form>
