@@ -98,6 +98,9 @@ export const AutenticacaoProvider = ({ children }: AutenticacaoProviderProps) =>
     } catch (error) {
       console.error("Erro ao fazer login:", error);
     }
+    finally {
+      setLoading(false);
+    }
   };
 
   const singout = ()=>{ 
