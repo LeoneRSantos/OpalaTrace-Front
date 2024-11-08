@@ -17,7 +17,8 @@ function Configuracoes() {
         idEthereum: string
     }
 
-    const [onEdit, setOnEdit] = useState(null)
+    const [onEdit, setOnEdit] = useState(null);
+    const usuarioLocal = JSON.parse(localStorage.getItem("@Auth:usuario")!);
 
     const [nomes, setnomes] = useState<Usuario[]>([])
     const [Ids, setIds] = useState<Usuario[]>([])
