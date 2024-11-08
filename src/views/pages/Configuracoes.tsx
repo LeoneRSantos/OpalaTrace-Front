@@ -51,22 +51,6 @@ function Configuracoes() {
         // else{return "else";}
     }
 
-    const getNomes = async () => {
-        try {
-            const res = await axios.get('http://localhost:3000/usuarios');
-            const ids = await axios.get("http://localhost:5000/api/v1/identities?fetchverifiers=true");
-            // console.log(res.data);
-            setIds(ids.data);
-
-            // console.log(res.data[0])
-            setnomes(res.data);
-
-            // return res.data[0].nome;
-
-        } catch (error) {
-            console.log(error)
-        }
-    }
 
     function definirCarteira(idDoUsuario: string) {
         for (let element of Ids) {
@@ -80,9 +64,6 @@ function Configuracoes() {
         return "nada";
     }
 
-    useEffect(() => {
-        getNomes()
-    }, [10000])
     let historico = useNavigate()
 
     return (
@@ -117,17 +98,10 @@ function Configuracoes() {
                                     Email
                                 </dt>
                                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {nomes.at(nomes.length - 1)?.email}
+                                    {usuarioLocal.email}
                                 </dd>
                             </div>
-                            <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                <dt className="text-sm font-medium text-gray-500">
-                                    Senha
-                                </dt>
-                                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    ******
-                                </dd>
-                            </div>
+
                             <div className="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt className="text-sm font-medium text-gray-500">
                                     Função
