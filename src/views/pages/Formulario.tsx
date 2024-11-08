@@ -7,39 +7,41 @@ import {
 } from "@/components/ui/select"
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
-import { Interface } from "readline";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"
+import {useAuth} from "../../context/Auth"
 
 
 function Formulario() {
 
     const [selectedFunction, setSelectedFunction] = useState(null);
-    
+    const {signed} = useAuth();
+
     const {
         register,
         handleSubmit,
         formState: { errors },
         setValue
     } = useForm();
-    
+
     const handleFunctionChange = (value: any) => {
         setSelectedFunction(value);
-        setValue("funcao", value)
+        setValue("id_funcao", value)
     }
-    
+
     interface Usuario {
         nome: string,
         email: string,
         senha: string,
         funcao: string
     }
-    
+
     interface Funcao {
         nome: string,
         id_funcao: string
     }
     const [funcoes, setFuncoes] = useState<Funcao[]>([])
-    
+
     const getFuncoes = async () => {
         try {
             const res = await axios.get('http://localhost:3000/listar-funcoes');
@@ -48,13 +50,26 @@ function Formulario() {
             console.log(error)
         }
     }
-    
+
     useEffect(() => {
         getFuncoes()
     }, [10000])
-    
+
+    let historico = useNavigate()
+
+    function enviarDados(dados: any) {
+        axios.post("http://localhost:3000/cadastrar-usuario", dados).then(()=>{ 
+            console.log("Dados enviados: \n", dados);
+            historico("/login");
+        }).catch(()=> { 
+            console.log("Verificar a API.")
+        })
+    }
+    if(signed){ 
+       historico("/opalas");
+    }
     return (
-        
+
         <section className="bg-back-color h-svh flex justify-center items-center">
             <div className="bg-form-color lg:w-6/12 px-4 pt-6 shadow-4xl rounded-3xl">
                 <div className="flex flex-col min-w-0 break-words w-full mb-6  rounded-lg border-0">
@@ -73,8 +88,11 @@ function Formulario() {
                         <form>
                             <div className="relative w-full mb-3">
                                 <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password"> Nome</label>
-                                <input {...register('nome', { required: {
-                                    value: true, message: "Este campo está vazio"} })} type="email" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow text-gray-800 focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Nome"></input>
+                                <input {...register('nome', {
+                                    required: {
+                                        value: true, message: "Este campo está vazio"
+                                    }
+                                })} type="email" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow text-gray-800 focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Nome"></input>
                             </div>
 
                             <div className="relative w-full mb-3">
@@ -105,6 +123,7 @@ function Formulario() {
                                         <SelectItem value="0d1626ef-8dab-4f4c-9128-3dd3a57c515d">Lapidador industrial</SelectItem>
                                         <SelectItem value="ae9f5185-e07f-4fa5-916f-2d669356b79e">Transportador</SelectItem>
                                         <SelectItem value="deb21e2e-f742-4d94-80a4-b9623885244a">Varejista</SelectItem>
+                                        <SelectItem value="30cb37d4-1b38-44b8-896b-40644120144c">Cliente</SelectItem>
 
                                     </SelectContent>
 
@@ -116,7 +135,9 @@ function Formulario() {
 
                             {/* Botão */}
                             <div className="text-center mt-6">
-                                <button onClick={handleSubmit((data) => console.log(data))} className="bg-button-color text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150" type="button">
+                                <button onClick={handleSubmit((data) => { console.log(data);
+                                    enviarDados(data);
+                                 })} className="bg-button-color text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150 border-2 border-white" type="button">
                                     Criar usuário
 
                                 </button>

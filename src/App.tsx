@@ -7,23 +7,28 @@ import Agentes from "./views/pages/Agentes"
 import { SignIn } from "./views/login"
 import "../app/globals.css"
 import Formulario from "./views/pages/Formulario"
+import AlterarDados from "./views/pages/Alterar-dados"
+import {AutenticacaoProvider} from "./context/Auth"
 
 function App() {
 
   return (
-    <main className="bg-gray-950 text-white">
-      <Router>
+    <Router>
+    <AutenticacaoProvider>
+
+    <main className="bg-back-color text-white">
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/opalas" element={<Opalas />} />
           <Route path="/configuracoes" element={<Configuracoes />} />
           <Route path="/rastreamento" element={<Rastreamento />} />
           <Route path="/agentes" element={<Agentes />} />
-          <Route path="/login" element={<SignIn />} />
+          <Route path="/" element={<SignIn />} />
           <Route path="/formulario" element={<Formulario />} />
+          <Route path="/alterar-dados" element={<AlterarDados />} />
         </Routes>
-      </Router>
     </main>
+    </AutenticacaoProvider>
+    </Router>
   )
 }
 
