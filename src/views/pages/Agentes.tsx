@@ -26,6 +26,11 @@ function Agentes() {
     
     const auth = useAuth();
 
+    useEffect(()=>{ 
+        if(!auth?.loading){ 
+            getNomes();
+        }
+    },[auth?.loading]);
 
 
     const getNomes = async () => {
