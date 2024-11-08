@@ -147,10 +147,12 @@ function Opalas() {
         return carteiraEthereum;
     }
 
-    useEffect(() => {
-        getOpalas();
-        filtrarOpalasDoAgente();
-    }, [10000])
+    useEffect(()=>{ 
+        if(!auth?.loading){ 
+            getOpalas();
+            filtrarOpalasDoAgente();
+        }
+    },[auth?.loading]);
 
     return (
         <>
