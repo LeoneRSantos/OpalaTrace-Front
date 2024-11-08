@@ -3,6 +3,7 @@ import NavBar from "../components/navbar/Navbar";
 import { useEffect, useState } from "react";
 import { ModalDeTransferencia } from "../components/modal-de-transferencia/Modal-de-transferencia";
 import { ModalDeCadastroDeOpala } from "../components/modal-de-cadastro-de-opala/Modal-de-cadastro-de-opala";
+import { useAuth } from "../../context/Auth"
 
 function Opalas() {
     interface Opalas {
