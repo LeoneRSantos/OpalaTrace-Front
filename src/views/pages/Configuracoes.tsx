@@ -6,14 +6,15 @@ import { useNavigate } from "react-router-dom"
 
 function Configuracoes() {
 
-    interface Usuario {
+    type Usuario = {
         id: string,
         nome: string,
         email: string,
         senha: string,
         id_funcao: string,
         to: string,
-        verifiers: any
+        verifiers: any,
+        idEthereum: string
     }
 
     const [onEdit, setOnEdit] = useState(null)
