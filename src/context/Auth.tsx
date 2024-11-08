@@ -33,7 +33,33 @@ export const useAuth = () => {
 
 export const AutenticacaoProvider = ({ children }: AutenticacaoProviderProps) => {
   const [usuario, setUsuario] = useState<Usuario | null>(null);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+
+  const configurarToken = (token: string | null) => {
+    if (token) {
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    }
+    else {
+      delete axios.defaults.headers.common['Authorization'];
+    }
+  }
+
+  useEffect(() => {
+    const interceptor = axios.interceptors.request.use((config) => {
+      const token = localStorage.getItem("@Auth:token");
+
+      if (token && !config.headers["Authorization"]) {
+        config.headers["Authorization"] = `Bearer ${token}`;
+      }
+      return config;
+    }, (error) => {
+      return Promise.reject(error);
+    });
+    return () => {
+      axios.interceptors.request.eject(interceptor);
+    }
+  }, [])
 
   useEffect(() => {
     const carregarDados = async () => {
