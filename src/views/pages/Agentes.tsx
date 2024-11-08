@@ -10,8 +10,9 @@ import {
 } from "@/components/ui/table"
 import axios from "axios";
 // import { TableRowsSplit } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import NavBar from "../components/navbar/Navbar";
+import { useAuth } from "../../context/Auth"
 
 function Agentes() {
     interface Usuario {
@@ -22,7 +23,8 @@ function Agentes() {
         id_funcao: string
     }
     const [nomes, setnomes] = useState<Usuario[]>([])
-    // const [onEdit, setOnEdit] = useState(null)
+    
+    const auth = useAuth();
 
 
 
