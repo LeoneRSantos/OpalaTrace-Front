@@ -81,15 +81,19 @@ export const AutenticacaoProvider = ({ children }: AutenticacaoProviderProps) =>
 
   const signin = async ({ email, senha }: { email: string; senha: string }) => {
     try {
+      setLoading(true);
       const response = await axios.post("http://localhost:3000/auth", { email, senha });
+
+      console.log("Token retornado pelo signin em Auth.tsx: \n", response.data.token);
 
       if (response.data.error) {
         alert(response.data.error);
       } else {
-        axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`;
-        setUsuario(response.data.usuario);
+        const { token, usuario: usuarioResponse } = response.data;
+        configurarToken(token);
+        setUsuario(usuarioResponse);
         localStorage.setItem("@Auth:token", response.data.token);
-        localStorage.setItem("@Auth:usuario", JSON.stringify(response.data.usuario)); // Armazena como string JSON
+        localStorage.setItem("@Auth:usuario", JSON.stringify(usuarioResponse)); // Armazena como string JSON
       }
     } catch (error) {
       console.error("Erro ao fazer login:", error);
