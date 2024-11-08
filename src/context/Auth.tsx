@@ -111,7 +111,7 @@ export const AutenticacaoProvider = ({ children }: AutenticacaoProviderProps) =>
   }
 
   return (
-    <AuthContext.Provider value={{ usuario, signed: !!usuario, signin, singout }}>
+    <AuthContext.Provider value={{ usuario, signed: !!usuario, signin, singout, loading }}>
       {children}
     </AuthContext.Provider>
   );
