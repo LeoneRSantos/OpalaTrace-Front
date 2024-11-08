@@ -13,6 +13,7 @@ interface AuthContextType {
   signed: boolean;
   singout: any;
   signin: ({ email, senha }: { email: string; senha: string }) => Promise<void>;
+  loading: boolean
 };
 
 
