@@ -182,6 +182,9 @@ function Opalas() {
                 {ModalDeCadastroDeOpala()}
 
                 {opalas.map((cadaOpala) => {
+
+                const indiceIncrementado = parseFloat(todasAsTransferencias[0].tokenIndex) + 1;
+
                     return (
                         <div key={cadaOpala.localId} className="max-w-lg mx-4 mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <p>
