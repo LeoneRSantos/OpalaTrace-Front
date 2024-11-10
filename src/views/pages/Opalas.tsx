@@ -194,7 +194,7 @@ function Opalas() {
                             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Função: {definirFuncao(cadaOpala.to)}</p>
                             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Índice: {cadaOpala.tokenIndex}</p>
 
-                            <ModalDeTransferencia key={cadaOpala.id} idOpala={cadaOpala.localId} idOrigem={testeCom19} indice={cadaOpala.tokenIndex} />
+                            <ModalDeTransferencia key={cadaOpala.id} idOpala={cadaOpala.localId} idOrigem={usuarioLocal.idEthereum} indice={cadaOpala.tokenIndex} />
                         </div>
                     )
 
