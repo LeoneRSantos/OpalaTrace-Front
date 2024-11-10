@@ -57,6 +57,7 @@ function Opalas() {
 
     const getOpalas = async () => {
         try {
+            // Todas as transferências
             const opala = await axios.get("http://127.0.0.1:5000/api/v1/namespaces/default/tokens/transfers");
 
             const nomes = await axios.get("http://localhost:5000/api/v1/identities?fetchverifiers=true");
@@ -68,14 +69,28 @@ function Opalas() {
             setNomes(nomes.data);
 
             if (Array.isArray(opala.data)) {
+                const tokenIndexCount: any = {};
 
+                // Contar quantas vezes cada `tokenIndex` aparece entre os itens com `type === "transfer"`.
+                opala.data.forEach(item => {
+                    if (item.type === "transfer") {
+                        tokenIndexCount[item.tokenIndex] = (tokenIndexCount[item.tokenIndex] || 0) + 1;
+                    }
+                });
+
+                // Filtrar os itens
                 const filteredTransfers = opala.data.filter(item =>
-                    item.type === "transfer" && item.to === usuarioLocal.idEthereum
+                    item.type === "transfer" &&
+                    item.to === usuarioLocal.idEthereum &&
+                    tokenIndexCount[item.tokenIndex] === 1  // Mantém apenas `tokenIndex` únicos
                 );
+
+                // Atualizar o estado com os itens filtrados
                 setOpalas(filteredTransfers);
             } else {
                 console.log("A resposta não é um array.");
             }
+
         } catch (error) {
             console.log(error);
 
