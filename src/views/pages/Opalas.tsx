@@ -29,6 +29,9 @@ function Opalas() {
     const [opalas, setOpalas] = useState<Opalas[]>([]);
     const [nomes, setNomes] = useState<Opalas[]>([]);
     const [infoBD, setInfoBD] = useState<Opalas[]>([]);
+    const [minte, setMint] = useState<Opalas[]>([]);
+    const [todasAsTransferencias, setTodasTransferencias] = useState<Opalas[]>([]);
+
 
     const auth = useAuth()
 
