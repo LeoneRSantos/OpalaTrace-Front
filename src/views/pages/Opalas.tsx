@@ -21,7 +21,9 @@ function Opalas() {
         profile: any;
         localId: string,
         tokenIndex: string,
-        idEthereum: string
+        idEthereum: string,
+        key: string,
+        tokenIndexCount: any
     }
 
     const [opalas, setOpalas] = useState<Opalas[]>([]);
