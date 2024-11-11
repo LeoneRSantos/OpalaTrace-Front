@@ -15,8 +15,14 @@ import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useAuth } from "../../../context/Auth"
 
+interface ModalDeCadastroProps {
+  indice: string | any,
+  id_usuario: string,
+  id_funcao: string,
+  destino: string,// Recebe o idOpala do componente pai
+}
 
-export function ModalDeCadastroDeOpala() {
+export function ModalDeCadastroDeOpala({indice, id_usuario, destino, id_funcao}: ModalDeCadastroProps) {
 
   interface Dados {
     id_usuario: string,
@@ -47,7 +53,29 @@ export function ModalDeCadastroDeOpala() {
   }
 
   function enviarDados(dados: any) {
-    console.log("Dados enviados: \n", dados);
+    axios.post("http://localhost:3000/cadastrar-opala", {
+      "indice": `${indice}`,
+        "id_usuario": id_usuario,
+        "id_funcao": id_funcao,
+        "destino": destino,
+        "local": dados.local,
+        "peso": dados.peso,
+        "tipo": dados.tipo
+    }).then(() => {
+      console.log("Dados enviados: \n", dados);
+    }).catch(() => {
+      console.log("Verificar a API.")
+    })
+    // console.log("Dados enviados: \n", 
+    //   {
+    //   "indice": indice,
+    //     "id_usuario": id_usuario,
+    //     "id_funcao": id_funcao,
+    //     "destino": destino,
+    //     "local": dados.local,
+    //     "peso": dados.peso,
+    //     "tipo": dados.tipo
+    // });
   }
 
   function definirFuncaoDoAgente(idDoAgente: string) {
@@ -96,14 +124,9 @@ export function ModalDeCadastroDeOpala() {
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="name" className="text-right">
-                Nome da Opala
+                Índice
               </Label>
-              <Input
-                defaultValue="nome"
-                className="col-span-3"
-                {...register('nome', { required: true })}
-              />
-              {errors.nome && <span className="text-red-500">Nome da Opala é obrigatório</span>}
+              <span className=" text-left text-gray-800">{indice}</span>
             </div>
 
             <div className="grid grid-cols-4 items-center gap-4">
@@ -111,7 +134,7 @@ export function ModalDeCadastroDeOpala() {
                 Local de extração
               </Label>
               <Input
-                defaultValue="local onde foi extraída."
+                defaultValue=""
                 className="col-span-3"
                 {...register('local', { required: true })}
               />
@@ -121,10 +144,10 @@ export function ModalDeCadastroDeOpala() {
 
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="username" className="text-right">
-              Peso
+              Peso (g)
             </Label>
             <Input
-              defaultValue="peso em gramas(g)"
+              defaultValue=""
               className="col-span-3"
               {...register('peso', { required: true })}
             />
