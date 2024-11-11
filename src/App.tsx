@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/opalas" element={<Opalas />} />
           <Route path="/configuracoes" element={<Configuracoes />} />
-          <Route path="/rastreamento" element={<Rastreamento />} />
+          <Route path="/rastreamento/:index?" element={<Rastreamento />} />
           <Route path="/agentes" element={<Agentes />} />
           <Route path="/" element={<SignIn />} />
           <Route path="/formulario" element={<Formulario />} />
