@@ -20,9 +20,12 @@ function Agentes() {
         nome: string,
         email: string,
         senha: string,
-        id_funcao: string
+        id_funcao: string,
+        verifiers: any,
+        i: any
     }
-    const [nomes, setnomes] = useState<Usuario[]>([])
+    const [nomes, setnomes] = useState<Usuario[]>([]);
+    const [Ids, setIds] = useState<Usuario[]>([]);
     
     const auth = useAuth();
 
@@ -35,12 +38,32 @@ function Agentes() {
 
     const getNomes = async () => {
         try {
+            // Identidades Firefly
+            const ids = await axios.get("http://localhost:5000/api/v1/identities?fetchverifiers=true");
+            setIds(ids.data);
+            
+            // Usuários do BD
             const res = await axios.get('http://localhost:3000/usuarios');
-            setnomes(res.data)
+            setnomes(res.data);
+
         } catch (error) {
             console.log(error)
         }
     }
+
+    function definirCarteira(idDoUsuario: string) {
+        for (let element of nomes) {
+            for(let i of Ids){ 
+                if (element.id== i.id) {
+                    if(i.id == idDoUsuario){
+                        return i.verifiers[0].value;
+                    }
+                }
+            }
+        }
+        return "ID não identificado";
+    }
+    
 
     function definirFuncao(idFuncao: string) {
         if (idFuncao == "f6499904-c2fd-49f1-a0a2-9bfd80a6cd65") {
@@ -92,16 +115,17 @@ function Agentes() {
                                             <TableHead className="w-[100px] bg-back-color">Nome</TableHead>
                                             <TableHead className="bg-back-color">Função</TableHead>
                                             <TableHead className="bg-back-color">Email</TableHead>
-                                            <TableHead className="bg-back-color">ID</TableHead>
+                                            <TableHead className="bg-back-color">ID Ethereum</TableHead>
                                         </TableRow>
                                     </TableHeader>
                                     <TableBody>
+                                        
                                         {nomes.map((nome) => (
                                             <TableRow key={nome.id} className="bg-white shadow overflow-hidden shadow rounded-lg font-medium text-gray-900">
                                                 <TableCell className="font-medium ">{nome.nome}</TableCell>
                                                 <TableCell >{definirFuncao(nome.id_funcao)}</TableCell>
                                                 <TableCell >{nome.email} </TableCell>
-                                                <TableCell >{nome.id} </TableCell>
+                                                <TableCell >{definirCarteira(nome.id)} </TableCell>
 
                                             </TableRow>
                                         ))}
