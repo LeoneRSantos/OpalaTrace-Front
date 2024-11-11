@@ -21,7 +21,7 @@ interface TransferFormInputs {
 }
 
 interface ModalDeTransferenciaProps {
-  idOpala: string; 
+  idOpala: string;
   idOrigem: string,
   indice: string// Recebe o idOpala do componente pai
 }
@@ -30,11 +30,11 @@ export function ModalDeTransferencia({ idOpala, idOrigem, indice }: ModalDeTrans
   const { register, handleSubmit } = useForm<TransferFormInputs>();
 
   const onSubmit: SubmitHandler<TransferFormInputs> = (data) => {
-    axios.post("http://localhost:3000/transferir-opala", data).then(()=>{ 
+    axios.post("http://localhost:3000/transferir-opala", data).then(() => {
       console.log("Dados enviados: \n", data);
-  }).catch(()=> { 
+    }).catch(() => {
       console.log("Verificar a API.")
-  })
+    })
   };
 
   return (
