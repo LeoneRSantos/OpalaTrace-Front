@@ -1,17 +1,12 @@
 import axios from "axios";
 import NavBar from "../components/navbar/Navbar";
 import { useEffect, useState } from "react";
+import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function Rastreamento() {
 
-    const rastreio = [{
-        custodiante: "Andrade",
-        funcao: "Varejista",
-        data: "23/03/24",
-        hora: "09h30",
-        peso: "20g",
-        tipo: "2"
-    }]
+    // { index }: { index?: string }
 
     interface Opalas {
         custodiante: string;
@@ -29,6 +24,12 @@ function Rastreamento() {
         localId: string;
         tokenIndex: string
     }
+
+    // Usuário logado
+    const usuarioLocal = JSON.parse(localStorage.getItem("@Auth:usuario")!);
+
+    // TokenIndex recuperado pela URL
+    const { index } = useParams();
 
     function definirNome(carteiraEthereum: string) {
         // Itera pela lista de elementos em 'nomes'
@@ -100,8 +101,7 @@ function Rastreamento() {
         return idFuncao;
     }
 
-
-
+    // Listas de dados
     const [opalas, setOpalas] = useState<Opalas[]>([]);
     const [infoBD, setInfoBD] = useState<Opalas[]>([]);
     const [nomes, setNomes] = useState<Opalas[]>([]);
@@ -110,20 +110,20 @@ function Rastreamento() {
     function formatarData(dateTime: string): string {
         // Converter a string para um objeto Date
         const date = new Date(dateTime);
-      
+
         // Extrair partes da data e hora
         const day = date.getUTCDate().toString().padStart(2, '0');
         const month = (date.getUTCMonth() + 1).toString().padStart(2, '0'); // Mês é 0-based
         const year = date.getUTCFullYear();
-      
+
         const hours = date.getUTCHours().toString().padStart(2, '0');
         const minutes = date.getUTCMinutes().toString().padStart(2, '0');
         const seconds = date.getUTCSeconds().toString().padStart(2, '0');
-      
+
         // Retornar a string formatada
         return `${day}/${month}/${year}  |  ${hours}:${minutes}:${seconds}`;
-      }
-    
+    }
+
 
     const getOpalas = async () => {
         try {
@@ -139,8 +139,14 @@ function Rastreamento() {
 
             // Verifica se 'opala.data' é um array e filtra apenas os itens com type "transfer"
             if (Array.isArray(opala.data)) {
-                const filteredTransfers = opala.data.filter(item => item.type === "transfer");
-                setOpalas(filteredTransfers);
+
+                // Filtra as transferências pelo índice
+                const filteredTransfers = opala.data.filter(item => item.type === "transfer" && item.tokenIndex == index);
+
+                // Filtra as transferências que chegaram ao usuário logado
+                const filteredTransfersPadrao = opala.data.filter(item => item.type === "transfer" && item.to === usuarioLocal.idEthereum);
+                setOpalas(filteredTransfers.length == 0 ? filteredTransfersPadrao : filteredTransfers);
+
                 console.log(filteredTransfers);
             } else {
                 console.log("A resposta não é um array.");
