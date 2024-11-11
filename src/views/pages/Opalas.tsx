@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { ModalDeTransferencia } from "../components/modal-de-transferencia/Modal-de-transferencia";
 import { ModalDeCadastroDeOpala } from "../components/modal-de-cadastro-de-opala/Modal-de-cadastro-de-opala";
 import { useAuth } from "../../context/Auth"
+import { useNavigate } from "react-router-dom";
+import { RastreamentoComponente } from "../components/rastreamento/Rastreamento-componente";
 
 function Opalas() {
     interface Opalas {
@@ -32,15 +34,12 @@ function Opalas() {
     const [minte, setMint] = useState<Opalas[]>([]);
     const [todasAsTransferencias, setTodasTransferencias] = useState<Opalas[]>([]);
 
-
+    // Contexto
     const auth = useAuth()
 
+    // Navegação
+    let historico = useNavigate();
 
-    // Teste com o ID Ethereum do Usuario 18
-    const testeDeFiltroEthereum = "0x595c1f08e81a78fe9a4c40faf9285ee60642d43a";
-
-    // Usuario 19
-    const testeCom19 = "0x3a03ddf449677fd086bc6dcce286b3c275ebe811";
     const usuarioLocal = JSON.parse(localStorage.getItem("@Auth:usuario")!);
 
     async function filtrarOpalasDoAgente() {
@@ -62,6 +61,18 @@ function Opalas() {
 
             const nomes = await axios.get("http://localhost:5000/api/v1/identities?fetchverifiers=true");
 
+            // Todas as transferências
+            setTodasTransferencias(opala.data);
+
+            // if (Array.isArray(mintes.data)){ 
+            //     const filtro = mintes.data.filter(item => item.type === "mint");
+            //     setMint(filtro);
+            //     console.log(filtro);
+            //   }
+            //   else{ 
+            //     console.log("Erro ao carregar a lista de mintes");
+            //   }
+
             // Recuperar dados do Banco de Dados
             const info = await axios.get('http://localhost:3000/usuarios');
             setInfoBD(info.data);
@@ -81,8 +92,9 @@ function Opalas() {
                 // Filtrar os itens
                 const filteredTransfers = opala.data.filter(item =>
                     item.type === "transfer" &&
-                    item.to === usuarioLocal.idEthereum &&
-                    tokenIndexCount[item.tokenIndex] === 1  // Mantém apenas `tokenIndex` únicos
+                    item.to === usuarioLocal.idEthereum 
+                    // &&
+                    // tokenIndexCount[item.tokenIndex] === 1  // Mantém apenas `tokenIndex` únicos
                 );
 
                 // Atualizar o estado com os itens filtrados
@@ -173,17 +185,16 @@ function Opalas() {
             filtrarOpalasDoAgente();
         }
     }, [auth?.loading]);
-
+    
+    
     return (
         <>
             <NavBar />
 
             <main className="h-screen  w-full justify-center  bg-back-color">
-                {ModalDeCadastroDeOpala()}
+                <ModalDeCadastroDeOpala indice={Number(opalas.at(0)?.tokenIndex) + 1} id_funcao={`${usuarioLocal.id_funcao}`} id_usuario={usuarioLocal.id} destino={usuarioLocal.idEthereum}/>
 
                 {opalas.map((cadaOpala) => {
-
-                const indiceIncrementado = parseFloat(todasAsTransferencias[0].tokenIndex) + 1;
 
                     return (
                         <div key={cadaOpala.localId} className="max-w-lg mx-4 mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -195,6 +206,8 @@ function Opalas() {
                             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Índice: {cadaOpala.tokenIndex}</p>
 
                             <ModalDeTransferencia key={cadaOpala.id} idOpala={cadaOpala.localId} idOrigem={usuarioLocal.idEthereum} indice={cadaOpala.tokenIndex} />
+
+                            <RastreamentoComponente indice={cadaOpala.tokenIndex} />
                         </div>
                     )
 
