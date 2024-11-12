@@ -118,6 +118,8 @@ function Opalas() {
                             <ModalDeTransferencia key={cadaOpala.id} idOpala={cadaOpala.localId} idOrigem={usuarioLocal.idEthereum} indice={cadaOpala.tokenIndex} />
 
                             <RastreamentoComponente indice={cadaOpala.tokenIndex} />
+
+                            <ModalDeDetalhesDaOpala indice={"6"} idOpala={cadaOpala.localId} dados={""}/>
                         </div>
                     )
 
