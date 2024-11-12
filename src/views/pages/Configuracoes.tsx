@@ -1,68 +1,11 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import NavBar from "../components/navbar/Navbar";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { definirFuncao } from "../../utils/DefinirFuncao";
 
 
 function Configuracoes() {
 
-    type Usuario = {
-        id: string,
-        nome: string,
-        email: string,
-        senha: string,
-        id_funcao: string,
-        to: string,
-        verifiers: any,
-        idEthereum: string
-    }
-
-    const [onEdit, setOnEdit] = useState(null);
     const usuarioLocal = JSON.parse(localStorage.getItem("@Auth:usuario")!);
-
-    const [nomes, setnomes] = useState<Usuario[]>([])
-    const [Ids, setIds] = useState<Usuario[]>([])
-
-    function definirFuncao(idFuncao: any) {
-        if (idFuncao == "f6499904-c2fd-49f1-a0a2-9bfd80a6cd65") {
-            return "Lapidador";
-        }
-        if (idFuncao == "deb21e2e-f742-4d94-80a4-b9623885244a") {
-            return "Varejista";
-
-        }
-
-        if (idFuncao == "ae9f5185-e07f-4fa5-916f-2d669356b79e") {
-            return "Transportador";
-        }
-
-        if (idFuncao == "0d1626ef-8dab-4f4c-9128-3dd3a57c515d") {
-            return "Lapidador industrial";
-        }
-
-        if (idFuncao == "820529c9-4510-4b3e-9c3b-736a682fb6eb") {
-            return "Lapidador artesanal";
-        }
-
-        if (idFuncao == "30cb37d4-1b38-44b8-896b-40644120144c") {
-            return "Cliente";
-        }
-
-        // else{return "else";}
-    }
-
-
-    function definirCarteira(idDoUsuario: string) {
-        for (let element of Ids) {
-            if (element.id == idDoUsuario) {
-                return element.verifiers[0].value;
-
-            }
-
-
-        }
-        return "nada";
-    }
 
     let historico = useNavigate()
 
