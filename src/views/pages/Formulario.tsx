@@ -6,21 +6,20 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
-import {useAuth} from "../../context/Auth"
+import { useAuth } from "../../context/Auth"
 
 
 function Formulario() {
 
     const [selectedFunction, setSelectedFunction] = useState(null);
-    const {signed} = useAuth();
+    const { signed } = useAuth();
 
     const {
         register,
         handleSubmit,
-        formState: { errors },
         setValue
     } = useForm();
 
@@ -29,45 +28,21 @@ function Formulario() {
         setValue("id_funcao", value)
     }
 
-    interface Usuario {
-        nome: string,
-        email: string,
-        senha: string,
-        funcao: string
-    }
-
-    interface Funcao {
-        nome: string,
-        id_funcao: string
-    }
-    const [funcoes, setFuncoes] = useState<Funcao[]>([])
-
-    const getFuncoes = async () => {
-        try {
-            const res = await axios.get('http://localhost:3000/listar-funcoes');
-            setFuncoes(res.data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    useEffect(() => {
-        getFuncoes()
-    }, [10000])
-
     let historico = useNavigate()
 
     function enviarDados(dados: any) {
-        axios.post("http://localhost:3000/cadastrar-usuario", dados).then(()=>{ 
+        axios.post("http://localhost:3000/cadastrar-usuario", dados).then(() => {
             console.log("Dados enviados: \n", dados);
-            historico("/login");
-        }).catch(()=> { 
+            historico("/");
+        }).catch(() => {
             console.log("Verificar a API.")
-        })
+        });
     }
-    if(signed){ 
-       historico("/opalas");
+
+    if (signed) {
+        historico("/opalas");
     }
+
     return (
 
         <section className="bg-back-color h-svh flex justify-center items-center">
@@ -130,14 +105,12 @@ function Formulario() {
                                 </Select>
                             </div>
 
-
-
-
                             {/* Botão */}
                             <div className="text-center mt-6">
-                                <button onClick={handleSubmit((data) => { console.log(data);
+                                <button onClick={handleSubmit((data) => {
+                                    console.log(data);
                                     enviarDados(data);
-                                 })} className="bg-button-color text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150 border-2 border-white" type="button">
+                                })} className="bg-button-color text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150 border-2 border-white" type="button">
                                     Criar usuário
 
                                 </button>
