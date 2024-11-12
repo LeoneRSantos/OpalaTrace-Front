@@ -66,27 +66,6 @@ export function ModalDeCadastroDeOpala({indice, id_usuario, destino, id_funcao}:
     }).catch(() => {
       console.log("Verificar a API.")
     })
-    // console.log("Dados enviados: \n", 
-    //   {
-    //   "indice": indice,
-    //     "id_usuario": id_usuario,
-    //     "id_funcao": id_funcao,
-    //     "destino": destino,
-    //     "local": dados.local,
-    //     "peso": dados.peso,
-    //     "tipo": dados.tipo
-    // });
-  }
-
-  function definirFuncaoDoAgente(idDoAgente: string) {
-    for (let element of usuarios) {
-      if (element.id == idDoAgente) {
-        console.log("Função do agente: ", element.id_funcao);
-        return element.id_funcao;
-      }
-    }
-    console.log("Usuário não encontrado pelo ID ", idDoAgente);
-    return idDoAgente;
   }
 
   useEffect(() => {
