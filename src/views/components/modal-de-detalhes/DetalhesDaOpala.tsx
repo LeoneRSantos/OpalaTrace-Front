@@ -16,7 +16,7 @@ import { useAuth } from "../../../context/Auth"
 interface ModalDeDetalhesDaOpalaProps {
   indice: string | any,// Recebe o idOpala do componente pai
   idOpala: string,
-  dados: any
+  dados: string
 }
 
 export function ModalDeDetalhesDaOpala({indice, idOpala, dados}: ModalDeDetalhesDaOpalaProps) {
@@ -24,7 +24,8 @@ export function ModalDeDetalhesDaOpala({indice, idOpala, dados}: ModalDeDetalhes
   interface Dados {
     local: string,
     peso: string,
-    tipo: string
+    tipo: string,
+    value: any
   }
 
   const [usuarios, setUsuarios] = useState<Dados[]>([]);
