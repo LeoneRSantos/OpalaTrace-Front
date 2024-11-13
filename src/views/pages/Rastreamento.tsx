@@ -108,12 +108,12 @@ function Rastreamento() {
                         <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-500">{cadaLocal.to == "0x52f7528c32894683acb5ada5d867d72ace69c764" ? "Preparação para transferência" : `Transferida para ${definirNomePeloIDEthereum(cadaLocal.to, nomes, infoBD)}, ${definirFuncaoPeloIDEthereum(cadaLocal.to, nomes, infoBD)}.`}</p>
 
                         {/* Modal de detalhes */}
-                       < ModalDeDetalhesDoRastreamento 
-                       indice={cadaLocal.tokenIndex} 
-                       idOpala={cadaLocal.localId} 
-                       
-                       origem={
-                        `${definirNomePeloIDEthereum(cadaLocal.key, nomes, infoBD)}, ${definirFuncaoPeloIDEthereum(cadaLocal.key, nomes, infoBD)}`}
+                        < ModalDeDetalhesDoRastreamento
+                            indice={cadaLocal.tokenIndex}
+                            idOpala={definirIDPeloMint(mintes, cadaLocal.tokenIndex)}
+
+                            origem={
+                                `${definirNomePeloIDEthereum(cadaLocal.key, nomes, infoBD)}, ${definirFuncaoPeloIDEthereum(cadaLocal.key, nomes, infoBD)}`}
 
                        destino={`${definirNomePeloIDEthereum(cadaLocal.to, nomes, infoBD)}, ${definirFuncaoPeloIDEthereum(cadaLocal.to, nomes, infoBD)}`} 
                        
