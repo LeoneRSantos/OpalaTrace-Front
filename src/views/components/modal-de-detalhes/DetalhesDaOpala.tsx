@@ -30,14 +30,7 @@ export function ModalDeDetalhesDaOpala({indice, idOpala, dados}: ModalDeDetalhes
 
   const [usuarios, setUsuarios] = useState<Dados[]>([]);
 
-  const auth = useAuth()
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    setValue
-  } = useForm();
+  const auth = useAuth();
 
   const getUsuarios = async () => {
     try {
