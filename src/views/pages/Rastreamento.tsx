@@ -115,9 +115,9 @@ function Rastreamento() {
                             origem={
                                 `${definirNomePeloIDEthereum(cadaLocal.key, nomes, infoBD)}, ${definirFuncaoPeloIDEthereum(cadaLocal.key, nomes, infoBD)}`}
 
-                       destino={`${definirNomePeloIDEthereum(cadaLocal.to, nomes, infoBD)}, ${definirFuncaoPeloIDEthereum(cadaLocal.to, nomes, infoBD)}`} 
-                       
-                       data_e_hora={formatarData(cadaLocal.created)} />
+                            destino={`${definirNomePeloIDEthereum(cadaLocal.to, nomes, infoBD)}, ${definirFuncaoPeloIDEthereum(cadaLocal.to, nomes, infoBD)}`}
+
+                            data_e_hora={formatarData(cadaLocal.created)} />
                     </li>
 
                 </ol>
