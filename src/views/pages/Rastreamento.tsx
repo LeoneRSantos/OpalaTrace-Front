@@ -7,6 +7,7 @@ import { useAuth } from "@/context/Auth";
 import { definirFuncaoPeloIDEthereum } from "../../utils/DefinirFuncao";
 import { definirNomePeloIDEthereum } from "../../utils/DefinirNomePeloIDEthereum";
 import { ModalDeDetalhesDoRastreamento } from "../components/modal-de-detalhes/DetalhesDoRastreamento";
+import { definirIDPeloMint } from "@/utils/DefinirMintes";
 
 function Rastreamento() {
 
