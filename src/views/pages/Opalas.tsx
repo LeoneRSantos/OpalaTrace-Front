@@ -3,11 +3,12 @@ import NavBar from "../components/navbar/Navbar";
 import { useEffect, useState } from "react";
 import { ModalDeTransferencia } from "../components/modal-de-transferencia/Modal-de-transferencia";
 import { ModalDeCadastroDeOpala } from "../components/modal-de-cadastro-de-opala/Modal-de-cadastro-de-opala";
-import {ModalDeDetalhesDaOpala} from "../../views/components/modal-de-detalhes/DetalhesDaOpala"
+import { ModalDeDetalhesDaOpala } from "../../views/components/modal-de-detalhes/DetalhesDaOpala"
 import { useAuth } from "../../context/Auth";
 import { RastreamentoComponente } from "../components/rastreamento/Rastreamento-componente";
 import { definirFuncaoPeloIDEthereum } from "@/utils/DefinirFuncao";
 import { definirNomePeloIDEthereum } from "@/utils/DefinirNomePeloIDEthereum";
+import { definirIDPeloMint, definirDadosPeloMint } from "@/utils/DefinirMintes";
 
 function Opalas() {
     interface Opalas {
@@ -34,6 +35,7 @@ function Opalas() {
     const [opalas, setOpalas] = useState<Opalas[]>([]);
     const [nomes, setNomes] = useState<Opalas[]>([]);
     const [infoBD, setInfoBD] = useState<Opalas[]>([]);
+    const [mintes, setMintes] = useState<Opalas[]>([]);
 
     // Contexto
     const auth = useAuth();
@@ -47,14 +49,6 @@ function Opalas() {
 
             const nomes = await axios.get("http://localhost:5000/api/v1/identities?fetchverifiers=true");
 
-            // if (Array.isArray(mintes.data)){ 
-            //     const filtro = mintes.data.filter(item => item.type === "mint");
-            //     setMint(filtro);
-            //     console.log(filtro);
-            //   }
-            //   else{ 
-            //     console.log("Erro ao carregar a lista de mintes");
-            //   }
 
             // Recuperar dados do Banco de Dados
             const info = await axios.get('http://localhost:3000/usuarios');
@@ -80,8 +74,15 @@ function Opalas() {
                     // tokenIndexCount[item.tokenIndex] === 1  // Mantém apenas `tokenIndex` únicos
                 );
 
+                // Filtrar os itens
+                // Mintes
+                const filtroDeMintes = opala.data.filter(item =>
+                    item.type === "mint"
+                );
+
                 // Atualizar o estado com os itens filtrados
                 setOpalas(filteredTransfers);
+                setMintes(filtroDeMintes);
             } else {
                 console.log("A resposta não é um array.");
             }
@@ -111,7 +112,7 @@ function Opalas() {
                     return (
                         <div key={cadaOpala.localId} className="max-w-lg mx-4 mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <p>
-                                <span className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Opala {cadaOpala.localId}</span>
+                                <span className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Opala {definirIDPeloMint(mintes, cadaOpala.tokenIndex)}</span>
                             </p>
                             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Custodiante: {definirNomePeloIDEthereum(cadaOpala.to, nomes, infoBD)}</p>
                             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Função: {definirFuncaoPeloIDEthereum(cadaOpala.to, nomes, infoBD)}</p>
@@ -121,7 +122,7 @@ function Opalas() {
 
                             <RastreamentoComponente indice={cadaOpala.tokenIndex} />
 
-                            <ModalDeDetalhesDaOpala indice={"6"} idOpala={cadaOpala.localId} dados={""}/>
+                            <ModalDeDetalhesDaOpala indice={cadaOpala.tokenIndex} idOpala={definirIDPeloMint(mintes, cadaOpala.tokenIndex)} dados={`${definirDadosPeloMint(mintes, cadaOpala.tokenIndex)}`} />
                         </div>
                     )
 
