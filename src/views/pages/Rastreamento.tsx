@@ -71,6 +71,13 @@ function Rastreamento() {
                 const filteredTransfersPadrao = opala.data.filter(item => item.type === "transfer" && item.to === usuarioLocal.idEthereum);
                 setOpalas(filteredTransfers.length == 0 ? filteredTransfersPadrao : filteredTransfers);
 
+                // Filtrar os itens
+                // Mintes
+                const filtroDeMintes = opala.data.filter(item =>
+                    item.type === "mint"
+                );
+                setMintes(filtroDeMintes);
+
                 console.log(filteredTransfers);
             } else {
                 console.log("A resposta não é um array.");
