@@ -10,7 +10,6 @@ import {
 import { Label } from "@/components/ui/label"
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useForm } from "react-hook-form"
 import { useAuth } from "../../../context/Auth"
 
 interface ModalDeDetalhesDaOpalaProps {
