@@ -86,7 +86,7 @@ export function ModalDeDetalhesDaOpala({indice, idOpala, dados}: ModalDeDetalhes
               <span className=" text-left text-gray-700">{usuarios.at(0)?.value.tipo== undefined? "dado não fornecido": usuarios.at(0)?.value.tipo}</span>
             </div>
 
-            <div className="grid grid-cols-4 items-center gap-4">
+            <div className="grid grid-cols-2 items-center gap-4">
               <Label htmlFor="name" className="text-right">
                 Índice:
               </Label>
