@@ -12,7 +12,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import NavBar from "../components/navbar/Navbar";
 import { useAuth } from "../../context/Auth"
-import { definirCarteira } from "../../utils/DefinirCarteiraFuncao"
+import { definirCarteira, definirCarteiraPeloEmail } from "../../utils/DefinirCarteiraFuncao"
 import { definirFuncao } from "../../utils/DefinirFuncao"
 
 function Agentes() {
@@ -80,7 +80,7 @@ function Agentes() {
                                                 <TableCell className="font-medium ">{nome.nome}</TableCell>
                                                 <TableCell >{definirFuncao(nome.id_funcao)}</TableCell>
                                                 <TableCell >{nome.email} </TableCell>
-                                                <TableCell >{definirCarteira(nome.id, nomes, Ids)} </TableCell>
+                                                <TableCell >{`${definirCarteira(nome.id, nomes, Ids) == "ID não identificado"? definirCarteiraPeloEmail(nome.email, nomes, Ids) : definirCarteira(nome.id, nomes, Ids)}`} </TableCell>
 
                                             </TableRow>
                                         ))}
