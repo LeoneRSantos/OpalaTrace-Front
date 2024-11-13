@@ -46,6 +46,8 @@ function Rastreamento() {
     const [opalas, setOpalas] = useState<Opalas[]>([]);
     const [infoBD, setInfoBD] = useState<Opalas[]>([]);
     const [nomes, setNomes] = useState<Opalas[]>([]);
+    const [mintes, setMintes] = useState<Opalas[]>([]);
+
 
     const getOpalas = async () => {
         try {
