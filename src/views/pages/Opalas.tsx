@@ -70,6 +70,15 @@ function Opalas() {
                     // tokenIndexCount[item.tokenIndex] === 1  // Mantém apenas `tokenIndex` únicos
                 );
 
+                // Filtrar os itens tarsnferidos
+                const filtroTransferidas = opala.data.filter(item =>
+                    item.type === "transfer" &&
+                    item.to !== usuarioLocal.idEthereum && item.key == usuarioLocal.idEthereum
+                    // &&
+                    // tokenIndexCount[item.tokenIndex] === 1  // Mantém apenas `tokenIndex` únicos
+                );
+                setTransferidas(filtroTransferidas);
+
                 // Filtrar os itens
                 // Mintes
                 const filtroDeMintes = opala.data.filter(item =>
@@ -79,6 +88,8 @@ function Opalas() {
                 // Atualizar o estado com os itens filtrados
                 setOpalas(filteredTransfers);
                 setMintes(filtroDeMintes);
+                // Todas as transferências
+                setTodas(opala.data);
             } else {
                 console.log("A resposta não é um array.");
             }
