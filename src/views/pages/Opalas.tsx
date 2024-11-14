@@ -1,14 +1,8 @@
 import axios from "axios";
 import NavBar from "../components/navbar/Navbar";
 import { useEffect, useState } from "react";
-import { ModalDeTransferencia } from "../components/modal-de-transferencia/Modal-de-transferencia";
-import { ModalDeCadastroDeOpala } from "../components/modal-de-cadastro-de-opala/Modal-de-cadastro-de-opala";
-import { ModalDeDetalhesDaOpala } from "../../views/components/modal-de-detalhes/DetalhesDaOpala"
 import { useAuth } from "../../context/Auth";
-import { RastreamentoComponente } from "../components/rastreamento/Rastreamento-componente";
-import { definirFuncaoPeloIDEthereum } from "@/utils/DefinirFuncao";
-import { definirNomePeloIDEthereum } from "@/utils/DefinirNomePeloIDEthereum";
-import { definirIDPeloMint, definirDadosPeloMint } from "@/utils/DefinirMintes";
+import { ComponenteOpala } from "../components/componente-opala/ComponenteOpala"
 
 function Opalas() {
     interface Opalas {
@@ -104,31 +98,14 @@ function Opalas() {
         <>
             <NavBar />
 
-            <main className="h-screen  w-full justify-center  bg-back-color">
-                <ModalDeCadastroDeOpala indice={Number(opalas.at(0)?.tokenIndex) + 1} id_funcao={`${usuarioLocal.id_funcao}`} id_usuario={usuarioLocal.id} destino={usuarioLocal.idEthereum} />
+            <div className="grid grid-cols-2">
 
-                {opalas.map((cadaOpala) => {
+                <ComponenteOpala todas={todas} opalas={opalas} mintes={mintes} nomes={nomes} infoBD={infoBD} transferida={false} />
 
-                    return (
-                        <div key={cadaOpala.localId} className="max-w-lg mx-4 mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <p>
-                                <span className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Opala {definirIDPeloMint(mintes, cadaOpala.tokenIndex)}</span>
-                            </p>
-                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Custodiante: {definirNomePeloIDEthereum(cadaOpala.to, nomes, infoBD)}</p>
-                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Função: {definirFuncaoPeloIDEthereum(cadaOpala.to, nomes, infoBD)}</p>
-                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Índice: {cadaOpala.tokenIndex}</p>
+                <ComponenteOpala todas={todas} opalas={transferidas} mintes={mintes} nomes={nomes} infoBD={infoBD} transferida={true} />
 
-                            <ModalDeTransferencia key={cadaOpala.id} idOpala={cadaOpala.localId} idOrigem={usuarioLocal.idEthereum} indice={cadaOpala.tokenIndex} />
+            </div>
 
-                            <RastreamentoComponente indice={cadaOpala.tokenIndex} />
-
-                            <ModalDeDetalhesDaOpala indice={cadaOpala.tokenIndex} idOpala={definirIDPeloMint(mintes, cadaOpala.tokenIndex)} dados={`${definirDadosPeloMint(mintes, cadaOpala.tokenIndex)}`} />
-                        </div>
-                    )
-
-                })}
-
-            </main>
         </>
     )
 }
