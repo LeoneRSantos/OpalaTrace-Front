@@ -71,21 +71,21 @@ export function ModalDeDetalhesDaOpala({ indice, idOpala, dados }: ModalDeDetalh
               <Label htmlFor="name" className="text-right">
                 Local de extração:
               </Label>
-              <span className=" text-left text-gray-700">{usuarios.at(0)?.value.local == undefined? "dado não fornecido": usuarios.at(0)?.value.local}</span>
+              <span className=" text-left text-gray-700">{usuarios.at(0)?.value.local == undefined ? "dado não fornecido" : usuarios.at(0)?.value.local}</span>
             </div>
 
             <div className="grid grid-cols-2 items-center gap-4">
               <Label htmlFor="name" className="text-right">
                 Peso:
               </Label>
-              <span className=" text-left text-gray-700">{usuarios.at(0)?.value.peso == undefined? "dado não fornecido":usuarios.at(0)?.value.peso}</span>
+              <span className=" text-left text-gray-700">{usuarios.at(0)?.value.peso == undefined ? "dado não fornecido" : usuarios.at(0)?.value.peso}</span>
             </div>
 
             <div className="grid grid-cols-2 items-center gap-4">
               <Label htmlFor="name" className="text-right">
                 Tipo:
               </Label>
-              <span className=" text-left text-gray-700">{usuarios.at(0)?.value.tipo== undefined? "dado não fornecido": usuarios.at(0)?.value.tipo}</span>
+              <span className=" text-left text-gray-700">{usuarios.at(0)?.value.tipo == undefined ? "dado não fornecido" : usuarios.at(0)?.value.tipo}</span>
             </div>
 
             <div className="grid grid-cols-2 items-center gap-4">
