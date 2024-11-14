@@ -106,7 +106,6 @@ function Opalas() {
         }
     }, [auth?.loading]);
 
-
     return (
         <>
             <NavBar />
