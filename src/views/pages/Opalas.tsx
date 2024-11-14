@@ -30,6 +30,8 @@ function Opalas() {
     const [nomes, setNomes] = useState<Opalas[]>([]);
     const [infoBD, setInfoBD] = useState<Opalas[]>([]);
     const [mintes, setMintes] = useState<Opalas[]>([]);
+    const [todas, setTodas] = useState<Opalas[]>([]);
+    const [transferidas, setTransferidas] = useState<Opalas[]>([]);
 
     // Contexto
     const auth = useAuth();
