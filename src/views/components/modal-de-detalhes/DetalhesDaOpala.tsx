@@ -33,8 +33,11 @@ export function ModalDeDetalhesDaOpala({ indice, idOpala, dados }: ModalDeDetalh
 
   const getUsuarios = async () => {
     try {
-      const usuario = await axios.get(`http://127.0.0.1:5000/api/v1/messages/${dados}/data`);
-      setUsuarios(usuario.data);
+      if (dados !== "n") {
+
+        const usuario = await axios.get(`http://127.0.0.1:5000/api/v1/messages/${dados}/data`);
+        setUsuarios(usuario.data);
+      }
 
     } catch (error) {
       console.log(error);
