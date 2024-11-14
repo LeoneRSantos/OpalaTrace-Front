@@ -18,7 +18,7 @@ interface ModalDeDetalhesDaOpalaProps {
   dados: string
 }
 
-export function ModalDeDetalhesDaOpala({indice, idOpala, dados}: ModalDeDetalhesDaOpalaProps) {
+export function ModalDeDetalhesDaOpala({ indice, idOpala, dados }: ModalDeDetalhesDaOpalaProps) {
 
   interface Dados {
     local: string,
