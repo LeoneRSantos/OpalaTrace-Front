@@ -26,7 +26,9 @@ export function ComponenteOpala({ todas, opalas, mintes, nomes, infoBD, transfer
 
                 {usuarioLocal.id_funcao == "0d1626ef-8dab-4f4c-9128-3dd3a57c515d" && transferida == false || usuarioLocal.id_funcao == "820529c9-4510-4b3e-9c3b-736a682fb6eb" && transferida == false ?
 
-                    <ModalDeCadastroDeOpala indice={Number(todas.at(0)?.tokenIndex) + 1} id_funcao={`${usuarioLocal.id_funcao}`} id_usuario={usuarioLocal.id} destino={usuarioLocal.idEthereum} /> : ""}
+                    <ModalDeCadastroDeOpala indice={Number(todas.at(0)?.tokenIndex) + 1} id_funcao={`${usuarioLocal.id_funcao}`} id_usuario={usuarioLocal.id} destino={usuarioLocal.idEthereum} /> : 
+                    <div className="mt-16"></div>
+                    }
 
 
 
