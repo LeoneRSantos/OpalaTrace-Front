@@ -98,9 +98,9 @@ export function ModalDeDetalhesDaOpala({ indice, idOpala, dados }: ModalDeDetalh
 
           <div className="grid grid-cols-4 items-center gap-4">
 
-          <div className="mt-2">
+            <div className="mt-2">
 
-          </div>
+            </div>
           </div>
         </form>
       </DialogContent>
