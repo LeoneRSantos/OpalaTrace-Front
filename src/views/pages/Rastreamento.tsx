@@ -105,7 +105,7 @@ function Rastreamento() {
                         <div className="absolute w-3 h-3 bg-gray-800 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                         <time className="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-500">{formatarData(cadaLocal.created)}</time>
                         <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{`Opala ${definirIDPeloMint(mintes, cadaLocal.tokenIndex)}, índice ${cadaLocal.tokenIndex}`}</h3>
-                        <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-500">{cadaLocal.to == "0x52f7528c32894683acb5ada5d867d72ace69c764" ? "Preparação para transferência" : `Transferida para ${definirNomePeloIDEthereum(cadaLocal.to, nomes, infoBD)}, ${definirFuncaoPeloIDEthereum(cadaLocal.to, nomes, infoBD)}.`}</p>
+                        <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-500">{cadaLocal.to == usuarioLocal.idEthereum && cadaLocal.key == "0x52f7528c32894683acb5ada5d867d72ace69c764" ? `Cadastrada por ${definirNomePeloIDEthereum(cadaLocal.to, nomes, infoBD)}, ${definirFuncaoPeloIDEthereum(cadaLocal.to, nomes, infoBD)}.`  : `Transferida para ${definirNomePeloIDEthereum(cadaLocal.to, nomes, infoBD)}, ${definirFuncaoPeloIDEthereum(cadaLocal.to, nomes, infoBD)}.`}</p>
 
                         {/* Modal de detalhes */}
                         < ModalDeDetalhesDoRastreamento
