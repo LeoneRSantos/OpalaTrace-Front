@@ -51,7 +51,7 @@ function Formulario() {
                     <div className="-t mb-0 px-6 py-6">
                         <div className="text-center mb-3">
                             <h2 className="text-blueGray-500 text-md font-bold">
-                                OpalaTrace
+                                OpalaTracer
                             </h2>
                         </div>
 
