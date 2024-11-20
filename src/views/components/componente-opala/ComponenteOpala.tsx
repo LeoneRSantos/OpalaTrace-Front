@@ -25,7 +25,7 @@ export function ComponenteOpala({ todas, opalas, mintes, nomes, infoBD, transfer
     return (
 
         <main className="h-screen  w-full justify-center  bg-back-color">
-            <div className="dispay-grid grid-columns-4">
+            <div className="dispay-grid grid-columns-2">
 
                 {usuarioLocal.id_funcao == "0d1626ef-8dab-4f4c-9128-3dd3a57c515d" && transferida == false || usuarioLocal.id_funcao == "820529c9-4510-4b3e-9c3b-736a682fb6eb" && transferida == false ?
 
