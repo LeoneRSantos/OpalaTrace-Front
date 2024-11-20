@@ -33,7 +33,24 @@ export function ComponenteOpala({ todas, opalas, mintes, nomes, infoBD, transfer
                     <div className="mt-16"></div>
                 }
 
-
+                <button
+                    onClick={() => setActiveTab('custody')}
+                    className={`px-4 py-2 mr-2 rounded-md transition-colors ${activeTab === 'custody'
+                        ? 'bg-button-color text-white'
+                        : 'bg-gray-200 text-gray-700 hover:bg-blue-700'
+                        }`}
+                >
+                    Em custódia
+                </button>
+                <button
+                    onClick={() => setActiveTab('transferred')}
+                    className={`px-4 py-2 rounded-md transition-colors ${activeTab === 'transferred'
+                        ? 'bg-button-color text-white'
+                        : 'bg-gray-200 text-gray-700 hover:bg-blue-700'
+                        }`}
+                >
+                    Transferidas
+                </button>
 
                 <div className="grid grid-cols-2 w-full">
                     {(activeTab === 'custody' ? opalas : transferidas).map((cadaOpala: any) => {
