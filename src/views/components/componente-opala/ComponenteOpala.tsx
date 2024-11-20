@@ -17,7 +17,7 @@ interface ComponenteOpalaProps {
     transferidas: any
 }
 
-export function ComponenteOpala({ todas, opalas, mintes, nomes, infoBD, transferida }: ComponenteOpalaProps) {
+export function ComponenteOpala({ todas, opalas, mintes, nomes, infoBD, transferida, transferidas }: ComponenteOpalaProps) {
 
     const usuarioLocal = JSON.parse(localStorage.getItem("@Auth:usuario")!);
 
