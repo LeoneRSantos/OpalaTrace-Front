@@ -29,14 +29,15 @@ export function ComponenteOpala({ todas, opalas, mintes, nomes, infoBD, transfer
 
                 {usuarioLocal.id_funcao == "0d1626ef-8dab-4f4c-9128-3dd3a57c515d" && transferida == false || usuarioLocal.id_funcao == "820529c9-4510-4b3e-9c3b-736a682fb6eb" && transferida == false ?
 
-                    <ModalDeCadastroDeOpala indice={Number(todas.at(0)?.tokenIndex) + 1} id_funcao={`${usuarioLocal.id_funcao}`} id_usuario={usuarioLocal.id} destino={usuarioLocal.idEthereum} /> : 
+                    <ModalDeCadastroDeOpala indice={Number(todas.at(0)?.tokenIndex) + 1} id_funcao={`${usuarioLocal.id_funcao}`} id_usuario={usuarioLocal.id} destino={usuarioLocal.idEthereum} /> :
                     <div className="mt-16"></div>
-                    }
+                }
 
 
 
-                {opalas.map((cadaOpala: any) => {
-                    return (
+                <div className="grid grid-cols-2 w-full">
+                    {(activeTab === 'custody' ? opalas : transferidas).map((cadaOpala: any) => {
+                        return (
 
                         <div key={cadaOpala.localId} className="max-w-lg mx-4 mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <p>
