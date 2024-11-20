@@ -56,23 +56,26 @@ export function ComponenteOpala({ todas, opalas, mintes, nomes, infoBD, transfer
                     {(activeTab === 'custody' ? opalas : transferidas).map((cadaOpala: any) => {
                         return (
 
-                        <div key={cadaOpala.localId} className="max-w-lg mx-4 mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <p>
-                                <span className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Opala {definirIDPeloMint(mintes, cadaOpala.tokenIndex)}</span>
-                            </p>
-                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Custodiante: {definirNomePeloIDEthereum(cadaOpala.to, nomes, infoBD)}</p>
-                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Função: {definirFuncaoPeloIDEthereum(cadaOpala.to, nomes, infoBD)}</p>
-                            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Índice: {cadaOpala.tokenIndex}</p>
+                            <div key={cadaOpala.localId} className=" max-w-lg mx-4 mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                <p>
+                                    <span className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Opala {definirIDPeloMint(mintes, cadaOpala.tokenIndex)}</span>
+                                </p>
+                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Custodiante: {definirNomePeloIDEthereum(cadaOpala.to, nomes, infoBD)}</p>
+                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Função: {definirFuncaoPeloIDEthereum(cadaOpala.to, nomes, infoBD)}</p>
+                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Índice: {cadaOpala.tokenIndex}</p>
 
-                            {transferida == false ? <ModalDeTransferencia key={cadaOpala.id} idOpala={definirIDPeloMint(mintes, cadaOpala.tokenIndex)} idOrigem={usuarioLocal.idEthereum} indice={cadaOpala.tokenIndex} /> : ""}
+                                {activeTab === 'custody' ? <ModalDeTransferencia key={cadaOpala.id} idOpala={definirIDPeloMint(mintes, cadaOpala.tokenIndex)} idOrigem={usuarioLocal.idEthereum} indice={cadaOpala.tokenIndex} /> : ""}
 
-                            <RastreamentoComponente indice={cadaOpala.tokenIndex} />
+                                <RastreamentoComponente indice={cadaOpala.tokenIndex} />
 
-                            <ModalDeDetalhesDaOpala indice={cadaOpala.tokenIndex} idOpala={definirIDPeloMint(mintes, cadaOpala.tokenIndex)} dados={`${definirDadosPeloMint(mintes, cadaOpala.tokenIndex) == "Dado não fornecido" ? "n" : definirDadosPeloMint(mintes, cadaOpala.tokenIndex)}`} />
-                        </div>
-                    )
+                                <ModalDeDetalhesDaOpala indice={cadaOpala.tokenIndex} idOpala={definirIDPeloMint(mintes, cadaOpala.tokenIndex)} dados={`${definirDadosPeloMint(mintes, cadaOpala.tokenIndex) == "Dado não fornecido" ? "n" : definirDadosPeloMint(mintes, cadaOpala.tokenIndex)}`} />
+                            </div>
+                        )
 
-                })}
+                    })}
+
+                    {/* Fim */}
+                </div>
 
             </div>
 
