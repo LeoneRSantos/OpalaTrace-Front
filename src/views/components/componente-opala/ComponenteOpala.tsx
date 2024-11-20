@@ -5,6 +5,7 @@ import { definirFuncaoPeloIDEthereum } from "@/utils/DefinirFuncao";
 import { ModalDeTransferencia } from "../modal-de-transferencia/Modal-de-transferencia";
 import { RastreamentoComponente } from "../rastreamento/Rastreamento-componente";
 import { ModalDeDetalhesDaOpala } from "../modal-de-detalhes/DetalhesDaOpala";
+import { useState } from "react";
 
 interface ComponenteOpalaProps {
     todas: any,
