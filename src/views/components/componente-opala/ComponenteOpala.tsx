@@ -12,7 +12,8 @@ interface ComponenteOpalaProps {
     mintes: any,
     nomes: any,
     infoBD: any,
-    transferida: boolean
+    transferida: boolean,
+    transferidas: any
 }
 
 export function ComponenteOpala({ todas, opalas, mintes, nomes, infoBD, transferida }: ComponenteOpalaProps) {
