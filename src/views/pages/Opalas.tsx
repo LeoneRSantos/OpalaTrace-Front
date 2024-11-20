@@ -110,13 +110,7 @@ function Opalas() {
         <>
             <NavBar />
 
-            <div className="grid grid-cols-2">
-
-                <ComponenteOpala todas={todas} opalas={opalas} mintes={mintes} nomes={nomes} infoBD={infoBD} transferida={false} />
-
-                <ComponenteOpala todas={todas} opalas={transferidas} mintes={mintes} nomes={nomes} infoBD={infoBD} transferida={true} />
-
-            </div>
+            <ComponenteOpala todas={todas} opalas={opalas} mintes={mintes} nomes={nomes} infoBD={infoBD} transferida={false} transferidas={transferidas} />
 
         </>
     )
