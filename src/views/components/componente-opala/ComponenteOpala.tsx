@@ -19,11 +19,11 @@ interface ComponenteOpalaProps {
 
 export function ComponenteOpala({ todas, opalas, mintes, nomes, infoBD, transferida, transferidas }: ComponenteOpalaProps) {
     const usuarioLocal = JSON.parse(localStorage.getItem("@Auth:usuario")!);
-    const [activeTab, setActiveTab] = useState<'custody' | 'transferred'>('custody');
+    const [activeTab, setActiveTab] = useState<'custodia' | 'transferidas'>('custodia');
     const [isDropdownOpen, setDropdownOpen] = useState(false);
 
     const toggleDropdown = () => setDropdownOpen(!isDropdownOpen);
-    const selectTab = (tab: 'custody' | 'transferred') => {
+    const selectTab = (tab: 'custodia' | 'transferidas') => {
         setActiveTab(tab);
         setDropdownOpen(false);
     };
@@ -71,17 +71,17 @@ export function ComponenteOpala({ todas, opalas, mintes, nomes, infoBD, transfer
                         >
                             <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="menu-button">
                                 <button
-                                    onClick={() => selectTab('custody')}
+                                    onClick={() => selectTab('custodia')}
                                     className={`block px-4 py-2 text-sm  text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full text-left ${
-                                        activeTab === 'custody' ? 'font-semibold' : ''
+                                        activeTab === 'custodia' ? 'font-semibold' : ''
                                     }`}
                                 >
                                     Em custódia
                                 </button>
                                 <button
-                                    onClick={() => selectTab('transferred')}
+                                    onClick={() => selectTab('transferidas')}
                                     className={`block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full text-left ${
-                                        activeTab === 'transferred' ? 'font-semibold' : ''
+                                        activeTab === 'transferidas' ? 'font-semibold' : ''
                                     }`}
                                 >
                                     Transferidas
@@ -92,7 +92,7 @@ export function ComponenteOpala({ todas, opalas, mintes, nomes, infoBD, transfer
                 </div>
 
                 <div className="grid grid-cols-2 w-full">
-                    {(activeTab === 'custody' ? opalas : transferidas).map((cadaOpala: any) => (
+                    {(activeTab === 'custodia' ? opalas : transferidas).map((cadaOpala: any) => (
                         <div
                             key={cadaOpala.localId}
                             className="max-w-lg mx-4 mt-4 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
