@@ -49,7 +49,7 @@ export function ComponenteOpala({ todas, opalas, mintes, nomes, infoBD, transfer
                         onClick={toggleDropdown}
                         className="inline-flex justify-between w-full rounded-md border border-gray-300 shadow-sm px-4 py-3 bg-gray-200 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none mx-4"
                     >
-                        {activeTab === 'custody' ? 'Em custódia' : 'Transferidas'}
+                        {activeTab === 'custodia' ? 'Filtro: em custódia' : 'Filtro: transferidas'}
                         <svg
                             className="ml-2 -mr-1 h-5 w-5 text-gray-500"
                             xmlns="http://www.w3.org/2000/svg"
