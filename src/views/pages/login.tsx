@@ -1,7 +1,5 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import axios from "axios";
-import { AuthContext, useAuth } from "../context/Auth"; // Corrigido para importar AuthContext
-import { useContext } from "react";
+import { useAuth } from "../../context/Auth"; 
 import { Navigate } from "react-router-dom";
 
 type FormValues = {
@@ -11,8 +9,6 @@ type FormValues = {
 
 export function SignIn() {
   const { register, handleSubmit } = useForm<FormValues>();
-
-
 
   const { signin, signed } = useAuth();
 
@@ -37,7 +33,7 @@ export function SignIn() {
               <div className="-t mb-0 px-6 py-6">
                 <div className="text-center mb-3">
                   <h2 className="text-blueGray-500 text-md font-bold">
-                    OpalaTrace
+                    OpalaTracer
                   </h2>
                 </div>
               </div>

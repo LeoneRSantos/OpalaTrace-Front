@@ -19,7 +19,6 @@ function AlterarDados() {
     const {
         register,
         handleSubmit,
-        formState: { errors },
         setValue
     } = useForm();
 

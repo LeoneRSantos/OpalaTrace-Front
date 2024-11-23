@@ -9,10 +9,11 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import axios from "axios";
-// import { TableRowsSplit } from "lucide-react";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import NavBar from "../components/navbar/Navbar";
 import { useAuth } from "../../context/Auth"
+import { definirCarteira, definirCarteiraPeloEmail } from "../../utils/DefinirCarteiraFuncao"
+import { definirFuncao } from "../../utils/DefinirFuncao"
 
 function Agentes() {
     interface Usuario {
@@ -20,54 +21,35 @@ function Agentes() {
         nome: string,
         email: string,
         senha: string,
-        id_funcao: string
+        id_funcao: string,
+        verifiers: any,
+        i: any
     }
-    const [nomes, setnomes] = useState<Usuario[]>([])
-    
+    const [nomes, setnomes] = useState<Usuario[]>([]);
+    const [Ids, setIds] = useState<Usuario[]>([]);
+
     const auth = useAuth();
 
-    useEffect(()=>{ 
-        if(!auth?.loading){ 
+    useEffect(() => {
+        if (!auth?.loading) {
             getNomes();
         }
-    },[auth?.loading]);
+    }, [auth?.loading]);
 
 
     const getNomes = async () => {
         try {
+            // Identidades Firefly
+            const ids = await axios.get("http://localhost:5000/api/v1/identities?fetchverifiers=true");
+            setIds(ids.data);
+
+            // Usuários do BD
             const res = await axios.get('http://localhost:3000/usuarios');
-            setnomes(res.data)
+            setnomes(res.data);
+
         } catch (error) {
             console.log(error)
         }
-    }
-
-    function definirFuncao(idFuncao: string) {
-        if (idFuncao == "f6499904-c2fd-49f1-a0a2-9bfd80a6cd65") {
-            return "Lapidador";
-        }
-        if (idFuncao == "deb21e2e-f742-4d94-80a4-b9623885244a") {
-            return "Varejista";
-
-        }
-
-        if (idFuncao == "ae9f5185-e07f-4fa5-916f-2d669356b79e") {
-            return "Transportador";
-        }
-
-        if (idFuncao == "0d1626ef-8dab-4f4c-9128-3dd3a57c515d") {
-            return "Lapidador industrial";
-        }
-
-        if (idFuncao == "820529c9-4510-4b3e-9c3b-736a682fb6eb") {
-            return "Lapidador artesanal";
-        }
-
-        if (idFuncao == "30cb37d4-1b38-44b8-896b-40644120144c") {
-            return "Cliente";
-        }
-
-        // else{return "else";}
     }
 
 
@@ -79,10 +61,6 @@ function Agentes() {
 
                 <div className="max-h-screen items-start justify-center w-full mx-2 mt-4 rounded-lg border">
                     <div>
-                        {/* <div className="margin-left: 16px;">
-                        <h2>Agentes</h2>
-                        <p>Esta será a tela na qual será possível adicionar e atualizar agentes</p>
-                    </div> */}
                         <div>
                             <div className="w-full">
                                 <Table className="bg-back-color">
@@ -92,24 +70,23 @@ function Agentes() {
                                             <TableHead className="w-[100px] bg-back-color">Nome</TableHead>
                                             <TableHead className="bg-back-color">Função</TableHead>
                                             <TableHead className="bg-back-color">Email</TableHead>
-                                            <TableHead className="bg-back-color">ID</TableHead>
+                                            <TableHead className="bg-back-color">ID Ethereum</TableHead>
                                         </TableRow>
                                     </TableHeader>
                                     <TableBody>
+
                                         {nomes.map((nome) => (
                                             <TableRow key={nome.id} className="bg-white shadow overflow-hidden shadow rounded-lg font-medium text-gray-900">
                                                 <TableCell className="font-medium ">{nome.nome}</TableCell>
                                                 <TableCell >{definirFuncao(nome.id_funcao)}</TableCell>
                                                 <TableCell >{nome.email} </TableCell>
-                                                <TableCell >{nome.id} </TableCell>
+                                                <TableCell >{`${definirCarteira(nome.id, nomes, Ids) == "ID não identificado"? definirCarteiraPeloEmail(nome.email, nomes, Ids) : definirCarteira(nome.id, nomes, Ids)}`} </TableCell>
 
                                             </TableRow>
                                         ))}
                                     </TableBody>
                                     <TableFooter>
                                         <TableRow>
-                                            {/* <TableCell colSpan={8}>Total</TableCell> */}
-                                            {/* <TableCell className="text-right">{nomes.length} </TableCell> */}
                                         </TableRow>
                                     </TableFooter>
                                 </Table>

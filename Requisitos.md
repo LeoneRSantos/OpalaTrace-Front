@@ -1,4 +1,4 @@
-# Requisitos do sistema OpalaTrace
+# Requisitos do sistema OpalaTracer
 
 <br>
 

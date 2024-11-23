@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useForm, SubmitHandler } from "react-hook-form";
 import axios from "axios";
+import { useState } from "react";
 
 interface TransferFormInputs {
   origem: string;
@@ -21,24 +22,28 @@ interface TransferFormInputs {
 }
 
 interface ModalDeTransferenciaProps {
-  idOpala: string; 
+  idOpala: string;
   idOrigem: string,
   indice: string// Recebe o idOpala do componente pai
 }
 
 export function ModalDeTransferencia({ idOpala, idOrigem, indice }: ModalDeTransferenciaProps) {
   const { register, handleSubmit } = useForm<TransferFormInputs>();
+  const [isDialogOpen, setIsDialogOpen] = useState(false); // Estado para controlar o modal
 
   const onSubmit: SubmitHandler<TransferFormInputs> = (data) => {
-    axios.post("http://localhost:3000/transferir-opala", data).then(()=>{ 
+    axios.post("http://localhost:3000/transferir-opala", data).then(() => {
       console.log("Dados enviados: \n", data);
-  }).catch(()=> { 
+      setIsDialogOpen(false); // Fecha o modal
+      window.location.reload(); // Atualiza a tela
+    }).catch(() => {
       console.log("Verificar a API.")
-  })
+    })
   };
 
   return (
     <Dialog>
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}></Dialog>
       <DialogTrigger asChild>
         <Button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-button-color rounded-lg hover:bg-button-color focus:ring-4 focus:outline-none focus:ring-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-button-color" variant="outline">
           Transferir
