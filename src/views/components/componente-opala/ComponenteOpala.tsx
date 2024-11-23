@@ -110,7 +110,7 @@ export function ComponenteOpala({ todas, opalas, mintes, nomes, infoBD, transfer
                             </p>
                             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Índice: {cadaOpala.tokenIndex}</p>
 
-                            {activeTab === 'custody' && (
+                            {activeTab === 'custodia' && (
                                 <ModalDeTransferencia
                                     key={cadaOpala.id}
                                     idOpala={definirIDPeloMint(mintes, cadaOpala.tokenIndex)}
